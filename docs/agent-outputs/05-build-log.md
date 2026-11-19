@@ -24,7 +24,8 @@ here rather than invented.
 | P3 | Mock data & services layer | 9.6.1, 9.3.1, 9.3.2 | — | pass | pass | pass | 58/58 | `1e2748d` |
 | P4 | Home | 9.4.1 | C-01 | pass | pass | pass | 76/76 | `4c868eb` |
 | P5 | Volunteer discovery | 1.1.1, 1.1.2 | V-01 | pass | pass | pass | 96/96 | `12aa7b6` |
-| P6 | Opportunity detail & registration | 1.1.3, 1.2.1, 1.2.2, 1.2.3 | V-02 | pass | pass | pass | 112/112 | pending |
+| P6 | Opportunity detail & registration | 1.1.3, 1.2.1, 1.2.2, 1.2.3 | V-02 | pass | pass | pass | 112/112 | `f67e0f1` |
+| P7 | My Activity | 1.3.2, 8.2.1, 2.3.1 | V-03 | pass | pass | pass | 128/128 | pending |
 
 ## Approved deviations
 
@@ -38,6 +39,7 @@ here rather than invented.
 | FONT-1 | Inter not bundled | Design assumes Inter | System fallback stack, Inter first | Keeps the build dependency-free; accepted visual drift on machines without Inter. | Yes |
 | DATA-1 | Home impact figures | Fixed "86 partner organizations", "340 open volunteer shifts" | Computed from the seed | The page must agree with the catalogue it links to. The two historical totals stay as drawn. | Implied by P4 |
 | PAGE-1 | Opportunities per page | Figma's pagination shows 4 cards per page | 20 per page | REQ-VOL-1 states 20; the requirement governs behaviour, the design governs look. | Implied by P5 |
+| ACT-1 | Cancel actions on V-03 | Figma draws no cancel control | Cancel on every upcoming row, disabled inside the cancellation window | REQ-VOL-7, REQ-EVT-5 and REQ-DSH-1 all require cancellation. | Implied by P7 |
 | NAV-1 | Header, footer and sidebar navigation | Unwired in Figma — menu items live inside component instances | Wired to routes in code | The prototype cannot navigate otherwise. | Implied by P2 |
 
 ## Open items

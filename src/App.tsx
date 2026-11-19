@@ -6,6 +6,7 @@ import { PublicLayout } from './components/layout/PublicLayout'
 import { RequireRole } from './components/layout/RequireRole'
 import { LogIn } from './routes/LogIn'
 import { Home } from './routes/Home'
+import { MyActivity } from './routes/MyActivity'
 import { NotBuilt } from './routes/NotBuilt'
 import { OpportunityDetail } from './routes/OpportunityDetail'
 import { Primitives } from './routes/Primitives'
@@ -49,10 +50,7 @@ export default function App() {
 
             {/* Member-only */}
             <Route element={<RequireRole allow={['volunteer', 'donor', 'partner', 'staff']} />}>
-              <Route
-                path="/my-activity"
-                element={<NotBuilt screen="V-03 My Activity" pkg="P7" />}
-              />
+              <Route path="/my-activity" element={<MyActivity />} />
               <Route
                 path="/profile"
                 element={<NotBuilt screen="C-03 Profile & Notifications" pkg="P12" />}

@@ -53,8 +53,9 @@ export function Header() {
         {isSignedIn(role) ? (
           <div className={styles.account}>
             <span className={styles.roleTag} data-testid="role-tag">{ROLES[role].label}</span>
-            <Link to="/profile" className={styles.avatar} aria-label="Profile and notifications">
-              {ROLES[role].initials}
+            <Link to="/profile" className={styles.avatar}>
+              <span aria-hidden="true">{ROLES[role].initials}</span>
+              <span className="srOnly">Profile and notifications</span>
             </Link>
             <button
               type="button"
