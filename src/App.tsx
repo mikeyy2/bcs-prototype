@@ -8,6 +8,7 @@ import { LogIn } from './routes/LogIn'
 import { Donate } from './routes/Donate'
 import { EventDetail } from './routes/EventDetail'
 import { Events } from './routes/Events'
+import { GiveItems } from './routes/GiveItems'
 import { Home } from './routes/Home'
 import { MyActivity } from './routes/MyActivity'
 import { NotBuilt } from './routes/NotBuilt'
@@ -39,7 +40,7 @@ export default function App() {
             <Route path="/events/:id" element={<EventDetail />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/donate/thank-you" element={<ThankYou />} />
-            <Route path="/give-items" element={<NotBuilt screen="D-03 Give Items" pkg="P10" />} />
+            <Route path="/give-items" element={<GiveItems />} />
             <Route
               path="/partner/apply"
               element={<NotBuilt screen="P-01 Partner Application" pkg="P13" />}
