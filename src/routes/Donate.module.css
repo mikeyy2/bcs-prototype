@@ -1,0 +1,322 @@
+/* Figma: D-01 Donate 16:115, D-02 Thank You & Receipt 16:116 */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-block: 28px 80px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--bcs-text-muted);
+  font-size: var(--bcs-size-base);
+}
+
+.breadcrumb a {
+  color: var(--bcs-primary);
+  font-weight: var(--bcs-weight-medium);
+}
+
+.title {
+  font-size: 30px;
+  font-weight: var(--bcs-weight-bold);
+}
+
+.lede {
+  margin-top: 4px;
+  color: var(--bcs-text-muted);
+  font-size: var(--bcs-size-md);
+  max-width: 60ch;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 32px;
+  align-items: start;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px;
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-border-soft);
+  border-radius: var(--bcs-radius-lg);
+  box-shadow: var(--bcs-shadow-card);
+}
+
+.step {
+  font-size: var(--bcs-size-xl);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.amounts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.amount {
+  min-height: 52px;
+  padding: 14px 10px;
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-border);
+  border-radius: var(--bcs-radius-sm);
+  color: var(--bcs-text);
+  font-family: inherit;
+  font-size: var(--bcs-size-lg);
+  font-weight: var(--bcs-weight-semibold);
+  cursor: pointer;
+}
+
+.amountActive {
+  background: var(--bcs-primary);
+  border-color: var(--bcs-primary);
+  color: var(--bcs-on-dark);
+}
+
+.divider {
+  height: 1px;
+  background: var(--bcs-border);
+  border: 0;
+  margin: 2px 0;
+}
+
+.fieldRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.fieldRow > * {
+  flex: 1 1 220px;
+  width: auto;
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--bcs-size-md);
+  cursor: pointer;
+}
+
+.check input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--bcs-primary);
+}
+
+.paymentHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  background: var(--bcs-background);
+  border: 1px dashed var(--bcs-border);
+  border-radius: var(--bcs-radius-sm);
+}
+
+.paymentNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--bcs-text-muted);
+  font-size: var(--bcs-size-base);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.error {
+  font-size: var(--bcs-size-base);
+  font-weight: var(--bcs-weight-medium);
+  color: var(--bcs-badge-red-fg);
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 20px;
+}
+
+.summary,
+.impact,
+.prompt {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-border-soft);
+  border-radius: var(--bcs-radius-lg);
+}
+
+.summaryTitle,
+.promptTitle {
+  font-size: var(--bcs-size-xl);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.kv {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: var(--bcs-size-md);
+}
+
+.kvKey {
+  color: var(--bcs-text-muted);
+}
+
+.kvValue {
+  font-weight: var(--bcs-weight-semibold);
+  text-align: right;
+}
+
+.note {
+  font-size: var(--bcs-size-base);
+  color: var(--bcs-text-muted);
+}
+
+.impact {
+  background: var(--bcs-avatar-bg);
+  border-color: transparent;
+}
+
+.impactTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--bcs-primary);
+  font-size: var(--bcs-size-lg);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--bcs-primary);
+  font-size: var(--bcs-size-md);
+  font-weight: var(--bcs-weight-medium);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* D-02 */
+.thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 36px 32px;
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-border-soft);
+  border-radius: var(--bcs-radius-lg);
+  box-shadow: var(--bcs-shadow-card);
+  text-align: center;
+}
+
+.tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--bcs-badge-green-bg);
+  border-radius: var(--bcs-radius-pill);
+}
+
+.tickIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.thanksTitle {
+  font-size: 28px;
+  font-weight: var(--bcs-weight-bold);
+}
+
+.banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--bcs-avatar-bg);
+  border-radius: var(--bcs-radius-sm);
+  text-align: left;
+  font-size: var(--bcs-size-md);
+}
+
+.receipt {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
+  background: var(--bcs-background);
+  border: 1px solid var(--bcs-border);
+  border-radius: var(--bcs-radius-sm);
+  text-align: left;
+}
+
+.receiptHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .aside {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .amounts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form {
+    padding: 20px;
+  }
+}

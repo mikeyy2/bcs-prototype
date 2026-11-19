@@ -5,6 +5,7 @@ import { ConsoleLayout } from './components/layout/ConsoleLayout'
 import { PublicLayout } from './components/layout/PublicLayout'
 import { RequireRole } from './components/layout/RequireRole'
 import { LogIn } from './routes/LogIn'
+import { Donate } from './routes/Donate'
 import { EventDetail } from './routes/EventDetail'
 import { Events } from './routes/Events'
 import { Home } from './routes/Home'
@@ -12,6 +13,7 @@ import { MyActivity } from './routes/MyActivity'
 import { NotBuilt } from './routes/NotBuilt'
 import { OpportunityDetail } from './routes/OpportunityDetail'
 import { Primitives } from './routes/Primitives'
+import { ThankYou } from './routes/ThankYou'
 import { Volunteer } from './routes/Volunteer'
 
 /**
@@ -35,11 +37,8 @@ export default function App() {
             <Route path="/volunteer/:id" element={<OpportunityDetail />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:id" element={<EventDetail />} />
-            <Route path="/donate" element={<NotBuilt screen="D-01 Donate" pkg="P9" />} />
-            <Route
-              path="/donate/thank-you"
-              element={<NotBuilt screen="D-02 Thank You & Receipt" pkg="P9" />}
-            />
+            <Route path="/donate" element={<Donate />} />
+            <Route path="/donate/thank-you" element={<ThankYou />} />
             <Route path="/give-items" element={<NotBuilt screen="D-03 Give Items" pkg="P10" />} />
             <Route
               path="/partner/apply"

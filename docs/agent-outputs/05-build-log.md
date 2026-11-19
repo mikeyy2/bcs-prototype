@@ -26,7 +26,8 @@ here rather than invented.
 | P5 | Volunteer discovery | 1.1.1, 1.1.2 | V-01 | pass | pass | pass | 96/96 | `12aa7b6` |
 | P6 | Opportunity detail & registration | 1.1.3, 1.2.1, 1.2.2, 1.2.3 | V-02 | pass | pass | pass | 112/112 | `f67e0f1` |
 | P7 | My Activity | 1.3.2, 8.2.1, 2.3.1 | V-03 | pass | pass | pass | 128/128 | `c057119` |
-| P8 | Events | 3.1.1, 3.1.2, 3.2.1, 3.2.2 | E-01, E-02, E-02a | pass | pass | pass | 160/160 | pending |
+| P8 | Events | 3.1.1, 3.1.2, 3.2.1, 3.2.2 | E-01, E-02, E-02a | pass | pass | pass | 160/160 | `dd16cd0` |
+| P9 | Donations | 2.1.1, 2.1.2, 2.1.3, 9.5.1 | D-01, D-02 | pass | pass | pass | 182/182 | pending |
 
 ## Approved deviations
 
@@ -43,6 +44,8 @@ here rather than invented.
 | ACT-1 | Cancel actions on V-03 | Figma draws no cancel control | Cancel on every upcoming row, disabled inside the cancellation window | REQ-VOL-7, REQ-EVT-5 and REQ-DSH-1 all require cancellation. | Implied by P7 |
 | EVT-1 | Event categories | Figma chips: Food & meals, Family, Drives, Workshops | The five REQ-EVT-1 categories | The SRS names the categories explicitly; the design predates it. | Implied by P8 |
 | RESP-1 | Calendar on phones | No mobile calendar designed | Seven-column grid below 820px becomes a chronological list | A 7-column grid is unusable at 390px; REQ-COM-5 requires 360px upward. | Implied by P8 |
+| PAY-1 | Payment step on D-01 | Figma draws a Stripe card form: number, expiry, CVC, ZIP | No card inputs at all; a labelled mock payment block | Static hosting has no processor, and REQ-DON-2 with NFR-SEC-2 require BCS never to receive card data. | Implied by P9 |
+| DON-1 | Anonymous donation | Not in the design | "Give anonymously" checkbox on D-01 | REQ-DON-3 and REQ-DON-4 are new in SRS v1.0; approved as a mock. | Yes |
 | NAV-1 | Header, footer and sidebar navigation | Unwired in Figma — menu items live inside component instances | Wired to routes in code | The prototype cannot navigate otherwise. | Implied by P2 |
 
 ## Open items
