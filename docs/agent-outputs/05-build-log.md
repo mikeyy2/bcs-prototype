@@ -23,7 +23,8 @@ here rather than invented.
 | P2 | App shell & role switcher | 9.4.1, 9.1.1, 9.1.3 | C-02 | pass | pass | pass | 50/50 | `cda93c0` |
 | P3 | Mock data & services layer | 9.6.1, 9.3.1, 9.3.2 | — | pass | pass | pass | 58/58 | `1e2748d` |
 | P4 | Home | 9.4.1 | C-01 | pass | pass | pass | 76/76 | `4c868eb` |
-| P5 | Volunteer discovery | 1.1.1, 1.1.2 | V-01 | pass | pass | pass | 96/96 | pending |
+| P5 | Volunteer discovery | 1.1.1, 1.1.2 | V-01 | pass | pass | pass | 96/96 | `12aa7b6` |
+| P6 | Opportunity detail & registration | 1.1.3, 1.2.1, 1.2.2, 1.2.3 | V-02 | pass | pass | pass | 112/112 | pending |
 
 ## Approved deviations
 

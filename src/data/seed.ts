@@ -29,15 +29,50 @@ export const ORGANIZATIONS: Organization[] = [
   ['org-10', 'Warm Coats Collective', 'Collects and distributes winter clothing.', 'Ames and Gilbert', '41-0000110'],
   ['org-11', 'Fresh Start Job Coaching', 'Résumé help and interview practice.', 'Ames', '41-0000111'],
   ['org-12', 'Harvest Share Gardens', 'Community plots growing produce for the pantry.', 'Ames', '41-0000112'],
-].map(([id, name, mission, serviceArea, ein]) => ({
+].map(([id, name, mission, serviceArea, ein], index) => ({
   id,
   name,
   mission,
   serviceArea,
   ein,
+  address: `${1100 + index * 37} Clark Ave, Ames, IA 50010`,
   contactEmail: `${id}@example.org`,
   verified: true,
 }))
+
+/** Three concrete tasks per category, for the "What you will do" list on V-02. */
+export const TASKS_BY_CATEGORY: Record<OpportunityCategory, string[]> = {
+  'Food Security': [
+    'Sort donated food by type and check expiration dates',
+    'Pack family grocery boxes using the pantry checklist',
+    'Restock shelves and break down boxes',
+  ],
+  'Youth & Education': [
+    'Read one-to-one with a child for twenty minutes',
+    'Help with homework and check answers together',
+    'Tidy the activity room and reset the book corner',
+  ],
+  Environment: [
+    'Collect litter along the marked route',
+    'Pull invasive plants and bag the cuttings',
+    'Log what you find on the site tally sheet',
+  ],
+  'Health & Seniors': [
+    'Deliver meals along a short residential route',
+    'Check in for a few minutes at each door',
+    'Report anything that needs follow-up to staff',
+  ],
+  'Animal Welfare': [
+    'Walk two or three dogs on the exercise loop',
+    'Refresh water bowls and bedding',
+    'Note behaviour changes on the kennel card',
+  ],
+  'Community Events': [
+    'Set out tables, chairs and signage',
+    'Greet arrivals and point them to the right desk',
+    'Pack down and return equipment to storage',
+  ],
+}
 
 type OppTemplate = [string, string, OpportunityCategory, string, string, string[]]
 

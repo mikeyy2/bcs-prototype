@@ -5,6 +5,7 @@ export type Organization = {
   name: string
   mission: string
   serviceArea: string
+  address: string
   contactEmail: string
   ein: string
   verified: boolean

@@ -7,6 +7,7 @@ import { RequireRole } from './components/layout/RequireRole'
 import { LogIn } from './routes/LogIn'
 import { Home } from './routes/Home'
 import { NotBuilt } from './routes/NotBuilt'
+import { OpportunityDetail } from './routes/OpportunityDetail'
 import { Primitives } from './routes/Primitives'
 import { Volunteer } from './routes/Volunteer'
 
@@ -28,10 +29,7 @@ export default function App() {
             <Route path="/login" element={<LogIn />} />
             <Route path="/search" element={<NotBuilt screen="S-01 Search Results" pkg="P11" />} />
             <Route path="/volunteer" element={<Volunteer />} />
-            <Route
-              path="/volunteer/:id"
-              element={<NotBuilt screen="V-02 Opportunity Detail" pkg="P6" />}
-            />
+            <Route path="/volunteer/:id" element={<OpportunityDetail />} />
             <Route path="/events" element={<NotBuilt screen="E-01 Events Calendar" pkg="P8" />} />
             <Route
               path="/events/:id"
