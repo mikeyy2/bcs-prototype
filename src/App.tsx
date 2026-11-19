@@ -5,6 +5,8 @@ import { ConsoleLayout } from './components/layout/ConsoleLayout'
 import { PublicLayout } from './components/layout/PublicLayout'
 import { RequireRole } from './components/layout/RequireRole'
 import { LogIn } from './routes/LogIn'
+import { EventDetail } from './routes/EventDetail'
+import { Events } from './routes/Events'
 import { Home } from './routes/Home'
 import { MyActivity } from './routes/MyActivity'
 import { NotBuilt } from './routes/NotBuilt'
@@ -31,11 +33,8 @@ export default function App() {
             <Route path="/search" element={<NotBuilt screen="S-01 Search Results" pkg="P11" />} />
             <Route path="/volunteer" element={<Volunteer />} />
             <Route path="/volunteer/:id" element={<OpportunityDetail />} />
-            <Route path="/events" element={<NotBuilt screen="E-01 Events Calendar" pkg="P8" />} />
-            <Route
-              path="/events/:id"
-              element={<NotBuilt screen="E-02 Event Detail & RSVP" pkg="P8" />}
-            />
+            <Route path="/events" element={<Events />} />
+            <Route path="/events/:id" element={<EventDetail />} />
             <Route path="/donate" element={<NotBuilt screen="D-01 Donate" pkg="P9" />} />
             <Route
               path="/donate/thank-you"
