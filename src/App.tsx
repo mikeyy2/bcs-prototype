@@ -8,6 +8,7 @@ import { LogIn } from './routes/LogIn'
 import { Home } from './routes/Home'
 import { NotBuilt } from './routes/NotBuilt'
 import { Primitives } from './routes/Primitives'
+import { Volunteer } from './routes/Volunteer'
 
 /**
  * HashRouter, not BrowserRouter: GitHub Pages has no server-side rewrite, so
@@ -26,10 +27,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/search" element={<NotBuilt screen="S-01 Search Results" pkg="P11" />} />
-            <Route
-              path="/volunteer"
-              element={<NotBuilt screen="V-01 Volunteer Opportunities" pkg="P5" />}
-            />
+            <Route path="/volunteer" element={<Volunteer />} />
             <Route
               path="/volunteer/:id"
               element={<NotBuilt screen="V-02 Opportunity Detail" pkg="P6" />}

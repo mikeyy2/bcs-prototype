@@ -40,7 +40,7 @@ export type OpportunityCategory =
   | 'Food Security'
   | 'Youth & Education'
   | 'Environment'
-  | 'Seniors'
+  | 'Health & Seniors'
   | 'Animal Welfare'
   | 'Community Events'
 
