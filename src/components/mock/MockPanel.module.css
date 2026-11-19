@@ -1,0 +1,166 @@
+/* Not a Figma surface. Scoped to look like scaffolding, not product chrome. */
+
+.trigger {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 16px;
+  background: var(--bcs-mock-bg);
+  border: 1px dashed var(--bcs-mock-border);
+  border-radius: var(--bcs-radius-pill);
+  color: var(--bcs-mock-fg);
+  font-family: var(--bcs-font);
+  font-size: var(--bcs-size-base);
+  font-weight: var(--bcs-weight-semibold);
+  cursor: pointer;
+  box-shadow: var(--bcs-shadow-card);
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  background: var(--bcs-mock-fg);
+  border-radius: var(--bcs-radius-pill);
+  color: var(--bcs-on-dark);
+  font-size: var(--bcs-size-xs);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(10, 59, 63, 0.4);
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 31;
+  width: 460px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bcs-surface);
+  border-left: 1px solid var(--bcs-border);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid var(--bcs-border);
+}
+
+.title {
+  font-size: var(--bcs-size-xl);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.subtitle {
+  margin-top: 4px;
+  font-size: var(--bcs-size-base);
+  color: var(--bcs-text-muted);
+}
+
+.close {
+  min-height: 44px;
+  min-width: 44px;
+  background: none;
+  border: 1px solid var(--bcs-border);
+  border-radius: var(--bcs-radius-sm);
+  color: var(--bcs-text);
+  font-family: inherit;
+  font-size: var(--bcs-size-md);
+  cursor: pointer;
+}
+
+.body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty {
+  padding: 32px 0;
+  color: var(--bcs-text-muted);
+  font-size: var(--bcs-size-md);
+  text-align: center;
+}
+
+.mail {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: var(--bcs-background);
+  border: 1px solid var(--bcs-border-soft);
+  border-radius: var(--bcs-radius-sm);
+}
+
+.mailHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.subject {
+  font-size: var(--bcs-size-md);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.meta {
+  font-size: var(--bcs-size-sm);
+  color: var(--bcs-text-muted);
+}
+
+.mailBody {
+  font-size: var(--bcs-size-base);
+  white-space: pre-wrap;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--bcs-border);
+  flex-wrap: wrap;
+}
+
+.reset {
+  min-height: 44px;
+  padding: 10px 16px;
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-badge-red-fg);
+  border-radius: var(--bcs-radius-sm);
+  color: var(--bcs-badge-red-fg);
+  font-family: inherit;
+  font-size: var(--bcs-size-md);
+  font-weight: var(--bcs-weight-semibold);
+  cursor: pointer;
+}
+
+.stats {
+  font-size: var(--bcs-size-base);
+  color: var(--bcs-text-muted);
+}

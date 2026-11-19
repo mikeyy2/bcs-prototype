@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { MockPanel } from '../mock/MockPanel'
 import styles from './Layouts.module.css'
 
 /** Header + content + footer, the shell every public screen shares (REQ-COM-1). */
@@ -15,6 +16,7 @@ export function PublicLayout() {
         <Outlet />
       </main>
       <Footer />
+      <MockPanel />
     </div>
   )
 }

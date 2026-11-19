@@ -1,5 +1,6 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { RoleProvider } from './app/RoleProvider'
+import { DataProvider } from './data/DataProvider'
 import { ConsoleLayout } from './components/layout/ConsoleLayout'
 import { PublicLayout } from './components/layout/PublicLayout'
 import { RequireRole } from './components/layout/RequireRole'
@@ -17,6 +18,7 @@ import { Primitives } from './routes/Primitives'
 export default function App() {
   return (
     <RoleProvider>
+      <DataProvider>
       <HashRouter>
         <Routes>
           <Route element={<PublicLayout />}>
@@ -96,6 +98,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </HashRouter>
+      </DataProvider>
     </RoleProvider>
   )
 }

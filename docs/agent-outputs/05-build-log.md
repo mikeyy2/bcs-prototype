@@ -20,7 +20,8 @@ here rather than invented.
 | P0 | Repo scaffold & deploy skeleton | 10.4.1, 10.3.1 | — | pass | pass | pass | 20/20 | `a1efc1c` |
 | P1 | Design tokens & primitives | 9.4.2 | — | pass | pass | pass | 20/20 | `a1efc1c` |
 | P1a | Accessibility amendments | 9.4.2 | — | pass | pass | pass | 18/18 | `424ae6c` |
-| P2 | App shell & role switcher | 9.4.1, 9.1.1, 9.1.3 | C-02 | pass | pass | pass | 50/50 | pending |
+| P2 | App shell & role switcher | 9.4.1, 9.1.1, 9.1.3 | C-02 | pass | pass | pass | 50/50 | `cda93c0` |
+| P3 | Mock data & services layer | 9.6.1, 9.3.1, 9.3.2 | — | pass | pass | pass | 58/58 | pending |
 
 ## Approved deviations
 
