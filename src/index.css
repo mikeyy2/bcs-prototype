@@ -1,0 +1,52 @@
+@import './styles/tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bcs-background);
+  color: var(--bcs-text);
+  font-family: var(--bcs-font);
+  font-size: var(--bcs-size-md);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Keyboard accessibility (NFR-USE-1). The Figma file defines no focus state,
+   so this ring is an addition, applied globally rather than per component. */
+:focus-visible {
+  outline: 2px solid var(--bcs-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

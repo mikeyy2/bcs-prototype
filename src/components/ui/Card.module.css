@@ -1,0 +1,15 @@
+/* Figma: Card 4:67 — white, 1px soft border, radius 12, 24 padding, soft drop shadow */
+
+.card {
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-border-soft);
+  border-radius: var(--bcs-radius-lg);
+  box-shadow: var(--bcs-shadow-card);
+  padding: 24px;
+}
+
+.title {
+  font-size: var(--bcs-size-xl);
+  font-weight: var(--bcs-weight-semibold);
+  color: var(--bcs-text);
+}

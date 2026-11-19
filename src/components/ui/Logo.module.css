@@ -1,0 +1,68 @@
+/* Figma: Logo 2:40, as instanced in Header 11:30, Footer 11:64 and both sidebars */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--bcs-radius-md);
+  color: var(--bcs-on-dark);
+  font-size: var(--bcs-size-xl);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  width: 122px;
+}
+
+.name {
+  font-size: var(--bcs-size-lg);
+  font-weight: var(--bcs-weight-bold);
+}
+
+.suffix {
+  font-size: var(--bcs-size-sm);
+  font-weight: var(--bcs-weight-regular);
+}
+
+/* Header: primary mark, primary text */
+.brand .mark {
+  background: var(--bcs-primary);
+}
+
+.brand .name,
+.brand .suffix {
+  color: var(--bcs-primary);
+}
+
+/* Footer: primary mark, white text */
+.onDark .mark {
+  background: var(--bcs-primary);
+}
+
+.onDark .name,
+.onDark .suffix {
+  color: var(--bcs-on-dark);
+}
+
+/* Partner and admin sidebars: accent mark, white name, muted suffix */
+.console .mark {
+  background: var(--bcs-accent);
+}
+
+.console .name {
+  color: var(--bcs-on-dark);
+}
+
+.console .suffix {
+  color: var(--bcs-on-dark-muted);
+}

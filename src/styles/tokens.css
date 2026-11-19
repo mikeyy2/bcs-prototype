@@ -1,0 +1,70 @@
+/*
+ * BCS design tokens.
+ *
+ * The six --bcs-* brand values below are the Figma variables, read from the
+ * prototype file via get_variable_defs (file IXg1ROaZ3ZQcv2h85KsCTQ).
+ * Values under "observed" are literals used in the design that were never
+ * promoted to Figma variables; they are tokenised here so screens never
+ * hardcode a hex.
+ */
+
+:root {
+  /* --- Figma variables (authoritative) --- */
+  --bcs-primary: #0f5257;
+  --bcs-primary-dark: #0a3b3f;
+  --bcs-accent: #e8833a;
+  --bcs-text: #1c2b2d;
+  --bcs-background: #f7f5f0;
+  --bcs-border: #e2ded6;
+
+  /* --- Observed in the design, not yet Figma variables --- */
+  --bcs-surface: #ffffff;
+  --bcs-on-dark: #ffffff;
+  --bcs-on-dark-muted: #cfe2e0;
+  --bcs-avatar-bg: #e3f0ef;
+
+  /* The design draws borders and secondary text at 37% opacity. */
+  --bcs-border-soft: rgba(226, 222, 214, 0.37);
+  --bcs-text-muted: rgba(28, 43, 45, 0.37);
+  --bcs-placeholder: rgba(91, 107, 110, 0.4);
+
+  /* Badge palettes, from Badge/Green 3:57, Badge/Yellow 3:60, Badge/Red 4:64 */
+  --bcs-badge-green-bg: #e6f3eb;
+  --bcs-badge-green-fg: #2e7d4f;
+  --bcs-badge-yellow-bg: #fff4d6;
+  --bcs-badge-yellow-fg: #9a6700;
+  --bcs-badge-red-bg: #fbe9e7;
+  --bcs-badge-red-fg: #b3261e;
+
+  /* Mock labelling — not from Figma. Required by CLAUDE.md so reviewers can
+     tell simulated features from real ones. */
+  --bcs-mock-bg: #f2e9fb;
+  --bcs-mock-fg: #5b2a86;
+  --bcs-mock-border: #c9a9e6;
+
+  /* --- Type --- */
+  --bcs-font: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --bcs-size-xs: 11px;
+  --bcs-size-sm: 12px;
+  --bcs-size-base: 13px;
+  --bcs-size-md: 14px;
+  --bcs-size-lg: 15px;
+  --bcs-size-xl: 18px;
+  --bcs-weight-regular: 400;
+  --bcs-weight-medium: 500;
+  --bcs-weight-semibold: 600;
+  --bcs-weight-bold: 700;
+
+  /* --- Shape --- */
+  --bcs-radius-sm: 8px;
+  --bcs-radius-md: 9px;
+  --bcs-radius-lg: 12px;
+  --bcs-radius-pill: 999px;
+  --bcs-shadow-card: 0 2px 4px rgba(0, 0, 0, 0.06);
+
+  /* --- Layout --- */
+  --bcs-page-width: 1440px;
+  --bcs-gutter: 120px;
+  --bcs-sidebar-width: 264px;
+  --bcs-header-height: 70px;
+}

@@ -1,0 +1,46 @@
+/* Figma: Button / Primary 2:45, Button / Secondary 3:49 */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--bcs-radius-sm);
+  font-family: var(--bcs-font);
+  font-size: var(--bcs-size-lg);
+  font-weight: var(--bcs-weight-semibold);
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.primary {
+  background: var(--bcs-primary);
+  color: var(--bcs-on-dark);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--bcs-primary-dark);
+}
+
+.secondary {
+  background: var(--bcs-surface);
+  border-color: var(--bcs-primary);
+  color: var(--bcs-primary);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--bcs-avatar-bg);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.full {
+  width: 100%;
+}

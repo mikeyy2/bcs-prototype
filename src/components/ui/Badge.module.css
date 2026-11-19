@@ -1,0 +1,35 @@
+/* Figma: Badge / Green 3:57, Badge / Yellow 3:60, Badge / Red 4:64 */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: var(--bcs-radius-pill);
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* The design uses 13px/medium for green but 12px/semibold for yellow and red.
+   Reproduced as drawn rather than normalised. */
+.green {
+  background: var(--bcs-badge-green-bg);
+  color: var(--bcs-badge-green-fg);
+  font-size: var(--bcs-size-base);
+  font-weight: var(--bcs-weight-medium);
+}
+
+.yellow {
+  background: var(--bcs-badge-yellow-bg);
+  color: var(--bcs-badge-yellow-fg);
+  font-size: var(--bcs-size-sm);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.red {
+  background: var(--bcs-badge-red-bg);
+  color: var(--bcs-badge-red-fg);
+  font-size: var(--bcs-size-sm);
+  font-weight: var(--bcs-weight-semibold);
+}

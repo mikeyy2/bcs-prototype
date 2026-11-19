@@ -1,0 +1,39 @@
+/*
+ * Not a Figma component. Required by CLAUDE.md: every mocked feature must
+ * carry a visible "Mock" label so a reviewer can tell what is simulated.
+ * Deliberately off-palette so it reads as scaffolding, not product chrome.
+ */
+
+.mock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  background: var(--bcs-mock-bg);
+  border: 1px dashed var(--bcs-mock-border);
+  border-radius: var(--bcs-radius-pill);
+  color: var(--bcs-mock-fg);
+  font-size: var(--bcs-size-xs);
+  font-weight: var(--bcs-weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.detail {
+  font-weight: var(--bcs-weight-medium);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.block {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: var(--bcs-mock-bg);
+  border: 1px dashed var(--bcs-mock-border);
+  border-radius: var(--bcs-radius-sm);
+  color: var(--bcs-mock-fg);
+  font-size: var(--bcs-size-base);
+}

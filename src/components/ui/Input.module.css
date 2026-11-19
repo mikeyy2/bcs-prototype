@@ -1,0 +1,56 @@
+/* Figma: Input 3:54 — label 13px medium muted, box 14px regular, radius 8 */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 320px;
+  max-width: 100%;
+}
+
+.label {
+  font-size: var(--bcs-size-base);
+  font-weight: var(--bcs-weight-medium);
+  color: var(--bcs-text-muted);
+}
+
+.required {
+  color: var(--bcs-badge-red-fg);
+  margin-left: 2px;
+}
+
+.control {
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-border-soft);
+  border-radius: var(--bcs-radius-sm);
+  font-family: var(--bcs-font);
+  font-size: var(--bcs-size-md);
+  color: var(--bcs-text);
+}
+
+.control::placeholder {
+  color: var(--bcs-placeholder);
+}
+
+.control:disabled {
+  background: var(--bcs-background);
+  cursor: not-allowed;
+}
+
+/* Error state is an addition — the Figma file has no error styling. */
+.invalid {
+  border-color: var(--bcs-badge-red-fg);
+}
+
+.error {
+  font-size: var(--bcs-size-base);
+  font-weight: var(--bcs-weight-medium);
+  color: var(--bcs-badge-red-fg);
+}
+
+.hint {
+  font-size: var(--bcs-size-base);
+  color: var(--bcs-text-muted);
+}
