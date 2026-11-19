@@ -1,0 +1,25 @@
+/*
+ * Figma draws every photo as a tinted block with a caption, e.g.
+ * "Image / Volunteers sorting food at a local pantry" (C-01 17:103).
+ * Kept as placeholders — the design ships no photography.
+ */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--bcs-avatar-bg);
+  border-radius: 10px;
+  color: var(--bcs-primary);
+  font-size: var(--bcs-size-sm);
+  font-weight: var(--bcs-weight-medium);
+  text-align: center;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}

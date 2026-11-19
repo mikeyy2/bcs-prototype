@@ -21,7 +21,8 @@ here rather than invented.
 | P1 | Design tokens & primitives | 9.4.2 | — | pass | pass | pass | 20/20 | `a1efc1c` |
 | P1a | Accessibility amendments | 9.4.2 | — | pass | pass | pass | 18/18 | `424ae6c` |
 | P2 | App shell & role switcher | 9.4.1, 9.1.1, 9.1.3 | C-02 | pass | pass | pass | 50/50 | `cda93c0` |
-| P3 | Mock data & services layer | 9.6.1, 9.3.1, 9.3.2 | — | pass | pass | pass | 58/58 | pending |
+| P3 | Mock data & services layer | 9.6.1, 9.3.1, 9.3.2 | — | pass | pass | pass | 58/58 | `1e2748d` |
+| P4 | Home | 9.4.1 | C-01 | pass | pass | pass | 76/76 | pending |
 
 ## Approved deviations
 
@@ -33,6 +34,7 @@ here rather than invented.
 | A11Y-4 | Button height | 42px (12px padding, no min-height) | `min-height: 44px`, padding unchanged | NFR-USE-3 requires 44×44px touch targets. | Yes |
 | TOOL-1 | Linter | Plan specified ESLint | oxlint | Ships with the current Vite React-TS template; a substitution, not an added package. | Yes |
 | FONT-1 | Inter not bundled | Design assumes Inter | System fallback stack, Inter first | Keeps the build dependency-free; accepted visual drift on machines without Inter. | Yes |
+| DATA-1 | Home impact figures | Fixed "86 partner organizations", "340 open volunteer shifts" | Computed from the seed | The page must agree with the catalogue it links to. The two historical totals stay as drawn. | Implied by P4 |
 | NAV-1 | Header, footer and sidebar navigation | Unwired in Figma — menu items live inside component instances | Wired to routes in code | The prototype cannot navigate otherwise. | Implied by P2 |
 
 ## Open items

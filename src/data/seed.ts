@@ -244,6 +244,15 @@ export const APPROVAL_ITEMS: ApprovalItem[] = [
   },
 ]
 
+/**
+ * Historical totals printed on C-01. These two have no seed basis — they are
+ * the figures drawn in Figma, kept as illustrative copy (DEVIATION DATA-1).
+ */
+export const YEAR_TO_DATE = {
+  volunteerHours: 12480,
+  donatedCents: 21_400_000,
+}
+
 /** The signed-in demo member. Invented; not a real person. */
 export const DEMO_PROFILE = {
   name: 'Jordan Diaz',

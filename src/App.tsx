@@ -5,6 +5,7 @@ import { ConsoleLayout } from './components/layout/ConsoleLayout'
 import { PublicLayout } from './components/layout/PublicLayout'
 import { RequireRole } from './components/layout/RequireRole'
 import { LogIn } from './routes/LogIn'
+import { Home } from './routes/Home'
 import { NotBuilt } from './routes/NotBuilt'
 import { Primitives } from './routes/Primitives'
 
@@ -22,7 +23,7 @@ export default function App() {
       <HashRouter>
         <Routes>
           <Route element={<PublicLayout />}>
-            <Route path="/" element={<NotBuilt screen="C-01 Home" pkg="P4" />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/search" element={<NotBuilt screen="S-01 Search Results" pkg="P11" />} />
             <Route

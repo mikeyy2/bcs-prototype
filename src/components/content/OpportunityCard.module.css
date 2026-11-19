@@ -1,0 +1,95 @@
+/* Figma: Opportunity Card 17:101 — 384px, radius 12, 20px stack padding */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-border-soft);
+  border-radius: var(--bcs-radius-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  height: 100%;
+}
+
+.card:hover {
+  border-color: var(--bcs-primary);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  flex: 1 1 auto;
+}
+
+.tag {
+  align-self: flex-start;
+  padding: 4px 10px;
+  background: var(--bcs-avatar-bg);
+  border-radius: var(--bcs-radius-pill);
+  color: var(--bcs-primary);
+  font-size: var(--bcs-size-sm);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.title {
+  font-size: var(--bcs-size-xl);
+  font-weight: var(--bcs-weight-semibold);
+  color: var(--bcs-text);
+}
+
+.org {
+  color: var(--bcs-primary);
+  font-size: var(--bcs-size-md);
+  font-weight: var(--bcs-weight-medium);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--bcs-text-muted);
+  font-size: var(--bcs-size-md);
+}
+
+.metaIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 4px;
+  flex-wrap: wrap;
+}
+
+.spots {
+  font-size: var(--bcs-size-base);
+  font-weight: var(--bcs-weight-semibold);
+  color: var(--bcs-badge-green-fg);
+}
+
+.spotsFull {
+  color: var(--bcs-badge-red-fg);
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--bcs-primary);
+  font-size: var(--bcs-size-md);
+  font-weight: var(--bcs-weight-medium);
+}
+
+.detailsIcon {
+  width: 16px;
+  height: 16px;
+}

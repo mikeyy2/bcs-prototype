@@ -1,0 +1,88 @@
+/* Figma: Event Row 17:203 — date block, stack, badge, details link */
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+}
+
+.row:hover .title {
+  color: var(--bcs-primary);
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  flex-shrink: 0;
+  padding: 8px 0;
+  background: var(--bcs-avatar-bg);
+  border-radius: var(--bcs-radius-sm);
+  color: var(--bcs-primary);
+}
+
+.month {
+  font-size: var(--bcs-size-xs);
+  font-weight: var(--bcs-weight-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.day {
+  font-size: var(--bcs-size-xl);
+  font-weight: var(--bcs-weight-bold);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--bcs-size-lg);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.where {
+  color: var(--bcs-text-muted);
+  font-size: var(--bcs-size-md);
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--bcs-primary);
+  font-size: var(--bcs-size-md);
+  font-weight: var(--bcs-weight-medium);
+  white-space: nowrap;
+}
+
+.detailsIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--bcs-border);
+  border: 0;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .details {
+    display: none;
+  }
+}
