@@ -1,0 +1,139 @@
+/* Figma: Header 11:30 — 1440×70, white, 48px inline padding, 16px block */
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: var(--bcs-header-height);
+  padding: 16px 48px;
+  background: var(--bcs-surface);
+  border-bottom: 1px solid var(--bcs-border-soft);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: var(--bcs-size-md);
+  font-weight: var(--bcs-weight-medium);
+  color: var(--bcs-text);
+}
+
+.navLink {
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  border-bottom-color: var(--bcs-primary);
+}
+
+.navLinkActive {
+  color: var(--bcs-primary);
+  border-bottom-color: var(--bcs-primary);
+}
+
+/* About has no Figma frame, so the link stays visible but inert (decision 6). */
+.navInert {
+  color: var(--bcs-text-muted);
+  cursor: not-allowed;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 9px 16px;
+  background: var(--bcs-background);
+  border: 1px solid var(--bcs-border-soft);
+  border-radius: var(--bcs-radius-pill);
+  color: var(--bcs-text-muted);
+  font-size: var(--bcs-size-base);
+  white-space: nowrap;
+}
+
+.search:hover {
+  border-color: var(--bcs-primary);
+  color: var(--bcs-text);
+}
+
+.logIn {
+  color: var(--bcs-primary);
+  font-size: var(--bcs-size-base);
+  font-weight: var(--bcs-weight-semibold);
+  white-space: nowrap;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--bcs-avatar-bg);
+  border-radius: var(--bcs-radius-pill);
+  color: var(--bcs-primary);
+  font-size: var(--bcs-size-base);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.roleTag {
+  font-size: var(--bcs-size-sm);
+  color: var(--bcs-text-muted);
+  white-space: nowrap;
+}
+
+.signOut {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--bcs-primary);
+  font-family: inherit;
+  font-size: var(--bcs-size-base);
+  font-weight: var(--bcs-weight-semibold);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Tablet and phone. The Figma file designs the header at 1440 only; C-04 shows
+   a bespoke mobile layout for the home page, handled in P15. */
+@media (max-width: 1100px) {
+  .header {
+    padding: 14px 24px;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+}
+
+@media (max-width: 640px) {
+  .search {
+    font-size: var(--bcs-size-sm);
+    padding: 9px 12px;
+  }
+
+  .roleTag {
+    display: none;
+  }
+}

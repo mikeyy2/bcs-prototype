@@ -1,0 +1,102 @@
+/* Figma: Sidebar / Admin 16:20 (#0A3B3F), Sidebar / Partner 16:60 (#0F5257) */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--bcs-sidebar-width);
+  min-height: 100vh;
+  padding: 28px 16px;
+  color: var(--bcs-on-dark);
+}
+
+.admin {
+  background: var(--bcs-primary-dark);
+}
+
+.partner {
+  background: var(--bcs-primary);
+}
+
+.top,
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 0 8px 20px;
+}
+
+.consoleName {
+  color: var(--bcs-on-dark-muted);
+  font-size: var(--bcs-size-xs);
+  font-weight: var(--bcs-weight-semibold);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: var(--bcs-radius-sm);
+  font-size: var(--bcs-size-md);
+  font-weight: var(--bcs-weight-medium);
+  color: var(--bcs-on-dark);
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.itemActive {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.muted {
+  color: var(--bcs-on-dark-muted);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.signOut {
+  background: none;
+  border: 0;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .top {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .brand {
+    padding: 0 8px 0 0;
+  }
+
+  .bottom {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

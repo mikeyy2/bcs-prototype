@@ -14,7 +14,7 @@ type MockLabelProps = {
  */
 export function MockLabel({ children, className }: MockLabelProps) {
   return (
-    <span className={[styles.mock, className].filter(Boolean).join(' ')}>
+    <span className={[styles.mock, className].filter(Boolean).join(' ')} data-mock="label">
       Mock
       {children ? <span className={styles.detail}>{children}</span> : null}
     </span>
@@ -24,7 +24,7 @@ export function MockLabel({ children, className }: MockLabelProps) {
 /** Block form, for explaining a mocked flow inline on a page. */
 export function MockNotice({ children, className }: MockLabelProps) {
   return (
-    <div className={[styles.block, className].filter(Boolean).join(' ')} role="note">
+    <div className={[styles.block, className].filter(Boolean).join(' ')} role="note" data-mock="notice">
       <MockLabel />
       <span>{children}</span>
     </div>

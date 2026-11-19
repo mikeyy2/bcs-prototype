@@ -1,0 +1,141 @@
+/* Figma: C-02 Log In / Sign Up 16:103 — 460px card centred between header and footer */
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  padding: 64px 20px 96px;
+  background: var(--bcs-background);
+}
+
+.card {
+  width: 460px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 41px;
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-border-soft);
+  border-radius: var(--bcs-radius-lg);
+  box-shadow: var(--bcs-shadow-card);
+}
+
+.title {
+  font-size: 26px;
+  font-weight: var(--bcs-weight-bold);
+}
+
+.lede {
+  color: var(--bcs-text-muted);
+  font-size: var(--bcs-size-md);
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fields > * {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--bcs-size-md);
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--bcs-primary);
+}
+
+.link {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--bcs-primary);
+  font-family: inherit;
+  font-size: var(--bcs-size-md);
+  font-weight: var(--bcs-weight-medium);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.newHere {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: var(--bcs-size-md);
+}
+
+.divider {
+  height: 1px;
+  background: var(--bcs-border);
+  border: 0;
+  margin: 0;
+}
+
+.shortcut {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shortcutHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.shortcutTitle {
+  font-size: var(--bcs-size-xs);
+  font-weight: var(--bcs-weight-semibold);
+  letter-spacing: 0.06em;
+  color: var(--bcs-text-muted);
+}
+
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.roleButton {
+  min-height: 44px;
+  padding: 7px 14px;
+  background: var(--bcs-surface);
+  border: 1px solid var(--bcs-primary);
+  border-radius: var(--bcs-radius-sm);
+  color: var(--bcs-primary);
+  font-family: inherit;
+  font-size: var(--bcs-size-md);
+  font-weight: var(--bcs-weight-semibold);
+  cursor: pointer;
+}
+
+.roleButton:hover {
+  background: var(--bcs-avatar-bg);
+}
+
+.gate {
+  font-size: var(--bcs-size-base);
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 24px;
+  }
+}

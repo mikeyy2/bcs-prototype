@@ -5,9 +5,8 @@ import { expect, test } from '@playwright/test'
 test.describe('P0 scaffold', () => {
   test('index loads under the Pages base path', async ({ page }) => {
     await page.goto('./')
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(
-      'Best Community Services',
-    )
+    await expect(page.getByRole('banner')).toBeVisible()
+    await expect(page.getByRole('contentinfo')).toBeVisible()
   })
 
   test('an inner route survives a full refresh', async ({ page }) => {
@@ -56,7 +55,7 @@ test.describe('P1 primitives', () => {
   })
 
   test('every mocked feature carries a visible Mock label', async ({ page }) => {
-    const mocks = page.getByText('Mock', { exact: true })
+    const mocks = page.locator('[data-mock]')
     expect(await mocks.count()).toBeGreaterThan(0)
     await expect(mocks.first()).toBeVisible()
   })
