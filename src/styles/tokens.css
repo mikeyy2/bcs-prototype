@@ -23,16 +23,23 @@
   --bcs-on-dark-muted: #cfe2e0;
   --bcs-avatar-bg: #e3f0ef;
 
-  /* The design draws borders and secondary text at 37% opacity. */
+  /* The design draws borders at 37% opacity; kept, borders are not text. */
   --bcs-border-soft: rgba(226, 222, 214, 0.37);
-  --bcs-text-muted: rgba(28, 43, 45, 0.37);
-  --bcs-placeholder: rgba(91, 107, 110, 0.4);
 
-  /* Badge palettes, from Badge/Green 3:57, Badge/Yellow 3:60, Badge/Red 4:64 */
+  /* DEVIATION (A11Y-1, A11Y-2): Figma draws secondary text at 37%/40% opacity,
+     which composites to 2.15:1 against the page background. NFR-USE-1 requires
+     WCAG AA 4.5:1, so these are solid colours instead of opacity. */
+  --bcs-text-muted: #5b6b6e;
+  --bcs-placeholder: #5f6f72;
+
+  /* Badge palettes, from Badge/Green 3:57, Badge/Yellow 3:60, Badge/Red 4:64.
+     DEVIATION (A11Y-3): green and yellow foregrounds darkened 5% from Figma
+     (#2E7D4F -> #2C774B, #9A6700 -> #926200) to clear WCAG AA. Red passes as
+     drawn and is unchanged. */
   --bcs-badge-green-bg: #e6f3eb;
-  --bcs-badge-green-fg: #2e7d4f;
+  --bcs-badge-green-fg: #2c774b;
   --bcs-badge-yellow-bg: #fff4d6;
-  --bcs-badge-yellow-fg: #9a6700;
+  --bcs-badge-yellow-fg: #926200;
   --bcs-badge-red-bg: #fbe9e7;
   --bcs-badge-red-fg: #b3261e;
 

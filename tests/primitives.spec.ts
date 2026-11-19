@@ -1,13 +1,6 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
-/**
- * Open design decision, not a code bug — see the tracking test at the bottom
- * of this file. Excluded from the blocking assertion so a genuine regression
- * elsewhere still fails the build.
- */
-const KNOWN_CONTRAST_DEFECT = 'color-contrast'
-
 /** P0 — the scaffold and GitHub Pages routing behave. */
 test.describe('P0 scaffold', () => {
   test('index loads under the Pages base path', async ({ page }) => {
@@ -74,42 +67,15 @@ test.describe('P1 primitives', () => {
     await expect(focused).toBeVisible()
   })
 
-  test('no critical or serious accessibility violations, except the known design defect', async ({
-    page,
-  }) => {
+  test('no critical or serious accessibility violations', async ({ page }) => {
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
       .analyze()
 
     const blocking = results.violations.filter(
-      (v) =>
-        (v.impact === 'critical' || v.impact === 'serious') &&
-        v.id !== KNOWN_CONTRAST_DEFECT,
+      (v) => v.impact === 'critical' || v.impact === 'serious',
     )
     expect(blocking.map((v) => `${v.id}: ${v.help}`)).toEqual([])
   })
 
-  /**
-   * Tracks the open design decision rather than hiding it. The Figma file ships
-   * three colour pairings that miss WCAG AA, which NFR-USE-1 requires:
-   *
-   *   Input label  rgba(28,43,45,0.37) on #F7F5F0 → 2.15:1  (needs 4.5:1)
-   *   Badge/Green  #2E7D4F on #E6F3EB             → 4.41:1
-   *   Badge/Yellow #9A6700 on #FFF4D6             → 4.44:1
-   *
-   * Reproduced as drawn because Figma decides the look. When the palette is
-   * corrected this test fails, which is the signal to delete it and the
-   * exception above.
-   */
-  test('known defect: Figma palette still misses WCAG AA contrast', async ({ page }) => {
-    const results = await new AxeBuilder({ page })
-      .withTags(['wcag2aa'])
-      .analyze()
-
-    const contrast = results.violations.find((v) => v.id === KNOWN_CONTRAST_DEFECT)
-    expect(
-      contrast,
-      'Figma contrast defect appears fixed — remove this test and the exception above',
-    ).toBeDefined()
-  })
 })

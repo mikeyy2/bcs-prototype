@@ -4,6 +4,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  /* DEVIATION (A11Y-4): Figma draws 42px tall (12px padding). Raised to a
+     44px minimum for NFR-USE-3 touch targets; padding unchanged. */
+  min-height: 44px;
   padding: 12px 22px;
   border: 1px solid transparent;
   border-radius: var(--bcs-radius-sm);

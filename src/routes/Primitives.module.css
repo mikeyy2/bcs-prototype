@@ -1,10 +1,5 @@
-/*
- * Development reference page, not one of the 20 prototype screens. Its own
- * chrome uses an AA-passing muted tone rather than --bcs-text-muted, so the
- * only contrast failures this page reports are the genuine Figma ones.
- */
+/* Development reference page, not one of the 20 prototype screens. */
 .page {
-  --dev-muted: #5b6b6e;
   max-width: 960px;
   margin: 0 auto;
   padding: 48px 24px 96px;
@@ -20,7 +15,7 @@
 
 .lede {
   font-size: var(--bcs-size-md);
-  color: var(--dev-muted);
+  color: var(--bcs-text-muted);
   max-width: 60ch;
 }
 
@@ -35,7 +30,7 @@
   font-weight: var(--bcs-weight-semibold);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--dev-muted);
+  color: var(--bcs-text-muted);
 }
 
 .row {
@@ -73,7 +68,7 @@
 }
 
 .swatchValue {
-  color: var(--dev-muted);
+  color: var(--bcs-text-muted);
   font-variant-numeric: tabular-nums;
 }
 
@@ -100,7 +95,7 @@
   gap: 6px;
   width: 76px;
   font-size: var(--bcs-size-xs);
-  color: var(--dev-muted);
+  color: var(--bcs-text-muted);
 }
 
 .icon img {
