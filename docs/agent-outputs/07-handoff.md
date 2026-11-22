@@ -9,9 +9,9 @@ as production-ready.
 
 | | |
 |---|---|
-| Screens built | **20 of 20** that exist in Figma |
+| Screens built | **19 of 20** as drawn; C-04 is a responsive derivation of C-01, not the drawn mobile layout |
 | Screens deferred | 10 — they exist in neither Figma nor the SRS prototype index as built |
-| Tests | 340 passing, 0 failing, 40 skipped |
+| Tests | 367 passing, 0 failing, 57 skipped |
 | Lint, typecheck, build | Clean |
 | Deployed | **Yes** — https://mikeyy2.github.io/bcs-prototype/ |
 
@@ -42,7 +42,7 @@ with a deliberately wide font forced, so the same class of defect fails locally 
    match if you use another name.
 2. `git remote add origin git@github.com:<owner>/bcs-prototype.git`
 3. `git push -u origin main`
-4. **Settings → Pages → Source → GitHub Actions.** Do not pick "Deploy from a branch".
+5. **Settings → Pages → Source → GitHub Actions.** Do not pick "Deploy from a branch".
 5. The workflow at `.github/workflows/deploy.yml` runs on every push to `main`: install,
    lint, typecheck, build, Playwright, then `upload-pages-artifact` and `deploy-pages`.
 6. The site lands at `https://<owner>.github.io/bcs-prototype/`.
@@ -51,7 +51,7 @@ with a deliberately wide font forced, so the same class of defect fails locally 
 |---|---|
 | Build command | `npm run build` |
 | Output folder | `dist` |
-| Node version | 20 (pinned in the workflow) |
+| Node version | 22 (pinned in the workflow) |
 | Environment variables | **None.** There are no secrets, keys or external services |
 | Cost | £0 — GitHub Pages is free for public repositories |
 | Visibility | Public. Pages on free accounts cannot be private |
@@ -86,23 +86,31 @@ Details in the README.
 
 ## Known gaps
 
-1. **Nineteen screens have no Figma mobile design.** Only C-01 has a 390px frame. The other
-   mobile and tablet layouts are derivations — checked for overflow and accessibility, not
-   against a design.
-2. **Atomicity is simulated** (REQ-BKG-1). One browser tab has no concurrency.
-3. **Timing windows are simulated** (REQ-VOL-8, REQ-DON-5, REQ-NTF-1/2). Timestamps are
-   computed correctly; no clock advances.
-4. **About, Contact and FAQ do not exist** (REQ-COM-3, REQ-COM-4, both High priority). They
+1. **C-04 is not built as drawn.** The Figma mobile home is a distinct layout — teal hero
+   card, orange button, three quick-action tiles, bottom tab bar. The app serves C-01
+   reflowed at phone width. See `06-test-report.md` gap 1.
+2. **Nineteen screens have no Figma mobile or tablet design.** Only C-01 has a 390px frame.
+   Those layouts are derivations — checked for overflow and accessibility, not against a design.
+3. **Fifteen of twenty frames were not compared side by side with Figma.** QA-3 showed the
+   layer tree hides fill-level differences, so the same class of defect may remain.
+4. **Atomicity is simulated** (REQ-BKG-1). One browser tab has no concurrency.
+5. **Timing windows are simulated** (REQ-VOL-8, REQ-DON-5, REQ-NTF-1/2). Timestamps compute
+   correctly; no clock advances.
+6. **About, Contact and FAQ do not exist** (REQ-COM-3, REQ-COM-4, both High priority). They
    have no Figma frames, so by agreement the header and footer links are inert.
-5. **The third report is missing** (part of REQ-ADM-7). Service usage and fee revenue cover
-   deferred services, so there is nothing to report on. A-03 says so on screen.
-6. **P-03 has no shift editor.** One date and one capacity per listing, where Figma draws a
+7. **A-03's third report is missing** (part of REQ-ADM-7). Service usage and fee revenue
+   cover deferred services. The screen says so.
+8. **An approved partner listing does not reach the public catalogue.** The partner sees
+   "Published" and staff see the decision, but created listings live outside the seeded
+   opportunity set.
+9. **P-03 has no shift editor.** One date and one capacity per listing, where Figma draws a
    repeatable shift row.
-7. **Eight SRS TBDs are unresolved.** The donation receipt prints `TBD-6 — not yet supplied`
-   instead of a tax ID, rather than inventing one.
-8. **Inter is not bundled**; machines without it fall back to a system font.
-9. **No milestone dates exist.** The Scope contains none; M1–M5 are sequence-only.
-10. **Chromium only.** No Firefox, Safari or Edge run, and no manual screen-reader pass.
+10. **Eight SRS TBDs are unresolved.** The receipt prints `TBD-6 — not yet supplied` rather
+    than an invented tax ID.
+11. **Inter is not bundled**; platforms fall back to different fonts. Layouts are now
+    hardened against that (FONT-2) and guarded by a test, but glyphs still differ.
+12. **No milestone dates exist.** The Scope contains none; M1–M5 are sequence-only.
+13. **Chromium only.** No Firefox, Safari or Edge run, and no manual screen-reader pass.
 
 ## Deviations from Figma
 
