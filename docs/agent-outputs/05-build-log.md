@@ -35,7 +35,7 @@ here rather than invented.
 | P14 | Staff console | 7.1.1–7.1.3, 7.2.1, 7.4.1–7.4.3 | A-01, A-02, A-03 | pass | pass | pass | 292/292 | `aa620a3` |
 | P15 | Responsive & accessibility pass | 9.4.2 | all 20 | pass | pass | pass | 340/340 | `da99903` |
 | P16 | Test suite & report | 10.2.1, 10.2.2 | — | pass | pass | pass | 340/340 | `72d74ec` |
-| P17 | README & handoff | 10.3.1, 10.4.1, 10.4.2 | — | pass | pass | pass | 340/340 | pending |
+| P17 | README & handoff | 10.3.1, 10.4.1, 10.4.2 | — | pass | pass | pass | 340/340 | `2a23f6e` |
 
 ## Approved deviations
 
