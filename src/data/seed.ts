@@ -288,6 +288,25 @@ export const YEAR_TO_DATE = {
   donatedCents: 21_400_000,
 }
 
+/** Fictional member accounts for the staff console (REQ-ADM-1). */
+export const MEMBER_ACCOUNTS = [
+  { id: 'acc-1', name: 'Jordan Diaz', email: 'jordan.diaz@example.com', roles: 'Volunteer, Donor', status: 'active' as const },
+  { id: 'acc-2', name: 'Priya Shah', email: 'priya.shah@example.com', roles: 'Volunteer', status: 'active' as const },
+  { id: 'acc-3', name: 'Tomas Rivera', email: 't.rivera@example.com', roles: 'Volunteer', status: 'suspended' as const },
+  { id: 'acc-4', name: 'Hannah Kim', email: 'h.kim@example.com', roles: 'Donor', status: 'active' as const },
+  { id: 'acc-5', name: 'Marcus Webb', email: 'm.webb@example.com', roles: 'Volunteer, Donor', status: 'active' as const },
+  { id: 'acc-6', name: 'Aisha Noor', email: 'a.noor@example.com', roles: 'Donor', status: 'active' as const },
+]
+
+/** Seeded staff accounts (REQ-ADM-3). Fictional. */
+export const STAFF_ACCOUNTS = [
+  { id: 'staff-1', name: 'Sam Patel', email: 's.patel@example.org', role: 'Administrator' as const, employment: 'Full-time' as const, active: true },
+  { id: 'staff-2', name: 'Dana Osei', email: 'd.osei@example.org', role: 'Staff' as const, employment: 'Part-time' as const, active: true },
+]
+
+/** The partner organisation the prototype signs you in as. */
+export const DEMO_PARTNER_ID = 'org-1'
+
 /** The signed-in demo member. Invented; not a real person. */
 export const DEMO_PROFILE = {
   name: 'Jordan Diaz',

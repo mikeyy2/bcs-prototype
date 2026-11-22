@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import type { MutableState, NotificationPrefs, Profile } from './types'
+import type { MemberAccount, MutableState, NotificationPrefs, PartnerListing, Profile, StaffAccount } from './types'
 
 export type RegisterResult =
   | { ok: true; registrationId: string }
@@ -23,6 +23,14 @@ export type InKindInput = {
   slotId: string | null
 }
 
+export type NewListingInput = {
+  title: string
+  kind: PartnerListing['kind']
+  category: string
+  dayOffset: number
+  capacity: number
+}
+
 export type DataContextValue = {
   state: MutableState
   register: (opportunityId: string, shiftId: string) => RegisterResult
@@ -36,6 +44,16 @@ export type DataContextValue = {
   setNotifications: (prefs: Partial<NotificationPrefs>) => void
   deleteAccount: () => void
   resetDemoData: () => void
+
+  /** Staff console (WBS 7.1–7.4). */
+  decideApproval: (itemId: string, decision: 'approved' | 'rejected', reason?: string) => void
+  setAccountStatus: (accountId: string, status: MemberAccount['status']) => void
+  setPartnerRevoked: (organizationId: string, revoked: boolean) => void
+  addStaffAccount: (account: Omit<StaffAccount, 'id'>) => void
+  setStaffActive: (staffId: string, active: boolean) => void
+
+  /** Partner console (WBS 6.2–6.3). */
+  createListing: (input: NewListingInput) => { listingId: string }
 }
 
 export const DataContext = createContext<DataContextValue | null>(null)

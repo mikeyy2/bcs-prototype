@@ -31,6 +31,7 @@ here rather than invented.
 | P10 | Give Items | 2.2.1, 2.2.2 | D-03 | pass | pass | pass | 198/198 | `c63a857` |
 | P11 | Search | 8.1.1 | S-01 | pass | pass | pass | 214/214 | `9da5e50` |
 | P12 | Profile & notifications | 9.2.1, 9.2.2 | C-03 | pass | pass | pass | 232/232 | `bb89df8` |
+| P13 | Partner console | 6.1.1, 6.2.1, 6.3.1, 1.3.1 | P-01, P-02, P-03 | pass | pass | pass | 256/256 | pending |
 
 ## Approved deviations
 
@@ -49,6 +50,8 @@ here rather than invented.
 | RESP-1 | Calendar on phones | No mobile calendar designed | Seven-column grid below 820px becomes a chronological list | A 7-column grid is unusable at 390px; REQ-COM-5 requires 360px upward. | Implied by P8 |
 | PAY-1 | Payment step on D-01 | Figma draws a Stripe card form: number, expiry, CVC, ZIP | No card inputs at all; a labelled mock payment block | Static hosting has no processor, and REQ-DON-2 with NFR-SEC-2 require BCS never to receive card data. | Implied by P9 |
 | DON-1 | Anonymous donation | Not in the design | "Give anonymously" checkbox on D-01 | REQ-DON-3 and REQ-DON-4 are new in SRS v1.0; approved as a mock. | Yes |
+| RESP-2 | Console and activity tables on phones | Tables are designed at 1440px only | Rows stack below 820px instead of scrolling horizontally | Horizontal scrolling put row action buttons out of reach on a 412px screen. | Implied by P13 |
+| LIST-1 | Shift editor on P-03 | Figma draws a repeatable shift row editor | One date and one capacity per listing | Enough to demonstrate the approval workflow end to end; the full editor is not built. | Flagged |
 | NAV-1 | Header, footer and sidebar navigation | Unwired in Figma — menu items live inside component instances | Wired to routes in code | The prototype cannot navigate otherwise. | Implied by P2 |
 
 ## Screens still to build

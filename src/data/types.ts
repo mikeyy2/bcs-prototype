@@ -130,6 +130,14 @@ export type OutboxEmail = {
   scheduled: boolean
 }
 
+export type MemberAccount = {
+  id: string
+  name: string
+  email: string
+  roles: string
+  status: 'active' | 'suspended'
+}
+
 export type ApprovalItem = {
   id: string
   kind: 'partner application' | 'listing' | 'profile edit' | 'in-kind offer'
@@ -151,9 +159,41 @@ export type MutableState = {
   extraTaken: Record<string, number>
   bookedSlotIds: string[]
   approvals: Record<string, ApprovalItem['status']>
+  /** Reason recorded when a queue item is rejected (REQ-ADM-4). */
+  approvalReasons: Record<string, string>
+  /** Overlay over the seeded account status (REQ-ADM-1). */
+  accountStatus: Record<string, MemberAccount['status']>
+  /** Overlay over the seeded partner status (REQ-ADM-2). */
+  partnerRevoked: string[]
+  /** Listings the partner created in this session. */
+  partnerListings: PartnerListing[]
+  /** Staff accounts an administrator created (REQ-ADM-3). */
+  staffAccounts: StaffAccount[]
   attendance: Record<string, Registration['attendance']>
   profile: Profile
   notifications: NotificationPrefs
+}
+
+export type PartnerListing = {
+  id: string
+  title: string
+  kind: 'opportunity' | 'event'
+  category: string
+  organizationId: string
+  dayOffset: number
+  capacity: number
+  status: ListingStatus
+  rejectionReason: string | null
+  createdAt: string
+}
+
+export type StaffAccount = {
+  id: string
+  name: string
+  email: string
+  role: 'Staff' | 'Driver' | 'Administrator'
+  employment: 'Full-time' | 'Part-time'
+  active: boolean
 }
 
 export type Profile = {

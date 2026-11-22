@@ -6,7 +6,16 @@
  * in a single browser tab, so atomicity is simulated, not guaranteed.
  */
 import { resolveDate } from './format'
-import { EVENTS, OPPORTUNITIES, ORGANIZATIONS, DROP_OFF_SLOTS } from './seed'
+import {
+  APPROVAL_ITEMS,
+  DEMO_PARTNER_ID,
+  DROP_OFF_SLOTS,
+  EVENTS,
+  MEMBER_ACCOUNTS,
+  OPPORTUNITIES,
+  ORGANIZATIONS,
+  STAFF_ACCOUNTS,
+} from './seed'
 import type { BcsEvent, MutableState, Opportunity, Shift } from './types'
 
 export type ResolvedShift = Shift & {
@@ -74,9 +83,15 @@ export function resolveOpportunity(
   }
 }
 
-/** Only approved, published listings are publicly visible (REQ-PRT-5, REQ-SRC-2). */
+/**
+ * Only approved, published listings are publicly visible (REQ-PRT-5, REQ-SRC-2),
+ * and revoking a partner immediately unpublishes all of its listings
+ * (REQ-ADM-2).
+ */
 export function publishedOpportunities(state: MutableState): ResolvedOpportunity[] {
-  return OPPORTUNITIES.filter((o) => o.status === 'published')
+  return OPPORTUNITIES.filter(
+    (o) => o.status === 'published' && !state.partnerRevoked.includes(o.organizationId),
+  )
     .map((o) => resolveOpportunity(o, state))
     .sort((a, b) => (a.nextStart?.getTime() ?? 0) - (b.nextStart?.getTime() ?? 0))
 }
@@ -100,7 +115,11 @@ export function resolveEvent(event: BcsEvent, state: MutableState): ResolvedEven
 }
 
 export function publishedEvents(state: MutableState): ResolvedEvent[] {
-  return EVENTS.filter((e) => e.status === 'published')
+  return EVENTS.filter(
+    (e) =>
+      e.status === 'published' &&
+      !(e.organizationId && state.partnerRevoked.includes(e.organizationId)),
+  )
     .map((e) => resolveEvent(e, state))
     .sort((a, b) => a.start.getTime() - b.start.getTime())
 }
@@ -131,6 +150,74 @@ export function totalVolunteerHours(state: MutableState): number {
 
 export function donationTotalCents(state: MutableState): number {
   return state.donations.reduce((sum, d) => sum + d.amountCents, 0)
+}
+
+/** Queue items with staff decisions applied (REQ-ADM-4). */
+export function approvalQueue(state: MutableState) {
+  return APPROVAL_ITEMS.map((item) => ({
+    ...item,
+    status: state.approvals[item.id] ?? item.status,
+    rejectionReason: state.approvalReasons[item.id] ?? item.rejectionReason,
+  }))
+}
+
+/** Member accounts with any staff suspension applied (REQ-ADM-1). */
+export function memberAccounts(state: MutableState) {
+  return MEMBER_ACCOUNTS.map((account) => ({
+    ...account,
+    status: state.accountStatus[account.id] ?? account.status,
+  }))
+}
+
+export function staffAccounts(state: MutableState) {
+  return [...STAFF_ACCOUNTS, ...state.staffAccounts]
+}
+
+/** Partner organisations with live listing counts and revocation applied. */
+export function partnerOrganizations(state: MutableState) {
+  return ORGANIZATIONS.map((organization) => {
+    const revoked = state.partnerRevoked.includes(organization.id)
+    const listings = OPPORTUNITIES.filter(
+      (o) => o.organizationId === organization.id && o.status === 'published',
+    ).length
+    return {
+      ...organization,
+      revoked,
+      activeListings: revoked ? 0 : listings,
+    }
+  })
+}
+
+/** Everything the demo partner owns: seeded listings plus anything created. */
+export function partnerListings(state: MutableState) {
+  const seeded = OPPORTUNITIES.filter((o) => o.organizationId === DEMO_PARTNER_ID).map((o) => ({
+    id: o.id,
+    title: o.title,
+    kind: 'opportunity' as const,
+    category: o.category as string,
+    status: o.status,
+    rejectionReason: null as string | null,
+    capacity: o.shifts.reduce((sum, shift) => sum + shift.capacity, 0),
+    filled: o.shifts.reduce(
+      (sum, shift) => sum + Math.min(shift.capacity, shift.taken + (state.extraTaken[shift.id] ?? 0)),
+      0,
+    ),
+    nextStart: resolveDate(o.shifts[0]?.dayOffset ?? 0, o.shifts[0]?.startHour ?? 0),
+  }))
+
+  const created = state.partnerListings.map((listing) => ({
+    id: listing.id,
+    title: listing.title,
+    kind: listing.kind,
+    category: listing.category,
+    status: listing.status,
+    rejectionReason: listing.rejectionReason,
+    capacity: listing.capacity,
+    filled: 0,
+    nextStart: resolveDate(listing.dayOffset, 9),
+  }))
+
+  return [...created, ...seeded]
 }
 
 /** The counts V-01 prints above the results list. */

@@ -4,10 +4,10 @@ import { DataContext } from './dataContext'
 import type { DataContextValue, DonateInput, InKindInput, RegisterResult, RsvpResult } from './dataContext'
 import * as mail from './emails'
 import { resolveDate } from './format'
-import { DROP_OFF_SLOTS } from './seed'
+import { APPROVAL_ITEMS, DEMO_PARTNER_ID, DROP_OFF_SLOTS } from './seed'
 import { clearState, emptyState, loadState, newId, newPaymentReference, saveState } from './store'
 import { findEvent, findOpportunity } from './selectors'
-import type { MutableState, NotificationPrefs, Profile } from './types'
+import type { MemberAccount, MutableState, NotificationPrefs, Profile, StaffAccount } from './types'
 
 export function DataProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<MutableState>(() => loadState())
@@ -244,6 +244,102 @@ export function DataProvider({ children }: { children: ReactNode }) {
     }))
   }, [])
 
+  /** REQ-ADM-4 — every rejection carries a reason, and the reason is emailed. */
+  const decideApproval = useCallback<DataContextValue['decideApproval']>(
+    (itemId, decision, reason) => {
+      setState((current) => {
+        const item = APPROVAL_ITEMS.find((i) => i.id === itemId)
+        const next: MutableState = {
+          ...current,
+          approvals: { ...current.approvals, [itemId]: decision },
+          approvalReasons:
+            decision === 'rejected' && reason
+              ? { ...current.approvalReasons, [itemId]: reason }
+              : current.approvalReasons,
+        }
+
+        if (!item) return next
+        return queue(next, [
+          mail.withId({
+            to: 'partner@example.org',
+            subject:
+              decision === 'approved'
+                ? `Approved: ${item.title}`
+                : `Not approved: ${item.title}`,
+            template: `approval-${decision}`,
+            body:
+              decision === 'approved'
+                ? `${item.title} has been approved and is now live.`
+                : `${item.title} was not approved. Reason: ${reason ?? 'none given'}`,
+            sendAt: new Date().toISOString(),
+            scheduled: false,
+          }),
+        ])
+      })
+    },
+    [queue],
+  )
+
+  const setAccountStatus = useCallback(
+    (accountId: string, status: MemberAccount['status']) => {
+      setState((current) => ({
+        ...current,
+        accountStatus: { ...current.accountStatus, [accountId]: status },
+      }))
+    },
+    [],
+  )
+
+  /** REQ-ADM-2 — revoking unpublishes every listing from that partner. */
+  const setPartnerRevoked = useCallback((organizationId: string, revoked: boolean) => {
+    setState((current) => ({
+      ...current,
+      partnerRevoked: revoked
+        ? [...new Set([...current.partnerRevoked, organizationId])]
+        : current.partnerRevoked.filter((id) => id !== organizationId),
+    }))
+  }, [])
+
+  const addStaffAccount = useCallback((account: Omit<StaffAccount, 'id'>) => {
+    setState((current) => ({
+      ...current,
+      staffAccounts: [...current.staffAccounts, { ...account, id: newId('staff') }],
+    }))
+  }, [])
+
+  const setStaffActive = useCallback((staffId: string, active: boolean) => {
+    setState((current) => ({
+      ...current,
+      staffAccounts: current.staffAccounts.map((s) =>
+        s.id === staffId ? { ...s, active } : s,
+      ),
+    }))
+  }, [])
+
+  /** REQ-PRT-4 / REQ-PRT-5 — a new listing is pending until staff approve it. */
+  const createListing = useCallback<DataContextValue['createListing']>((input) => {
+    const listingId = newId('listing')
+    setState((current) => ({
+      ...current,
+      partnerListings: [
+        ...current.partnerListings,
+        {
+          id: listingId,
+          title: input.title,
+          kind: input.kind,
+          category: input.category,
+          organizationId: DEMO_PARTNER_ID,
+          dayOffset: input.dayOffset,
+          capacity: input.capacity,
+          status: 'pending',
+          rejectionReason: null,
+          createdAt: new Date().toISOString(),
+        },
+      ],
+    }))
+    return { listingId }
+  }, [])
+
   const resetDemoData = useCallback(() => {
     clearState()
     setState(emptyState())
@@ -263,6 +359,12 @@ export function DataProvider({ children }: { children: ReactNode }) {
       setNotifications,
       deleteAccount,
       resetDemoData,
+      decideApproval,
+      setAccountStatus,
+      setPartnerRevoked,
+      addStaffAccount,
+      setStaffActive,
+      createListing,
     }),
     [
       state,
@@ -277,6 +379,12 @@ export function DataProvider({ children }: { children: ReactNode }) {
       setNotifications,
       deleteAccount,
       resetDemoData,
+      decideApproval,
+      setAccountStatus,
+      setPartnerRevoked,
+      addStaffAccount,
+      setStaffActive,
+      createListing,
     ],
   )
 

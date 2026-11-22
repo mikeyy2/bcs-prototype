@@ -13,6 +13,9 @@ import { Home } from './routes/Home'
 import { MyActivity } from './routes/MyActivity'
 import { NotBuilt } from './routes/NotBuilt'
 import { OpportunityDetail } from './routes/OpportunityDetail'
+import { PartnerApply } from './routes/PartnerApply'
+import { PartnerDashboard } from './routes/PartnerDashboard'
+import { PartnerListingForm } from './routes/PartnerListingForm'
 import { Primitives } from './routes/Primitives'
 import { Profile } from './routes/Profile'
 import { Search } from './routes/Search'
@@ -43,10 +46,7 @@ export default function App() {
             <Route path="/donate" element={<Donate />} />
             <Route path="/donate/thank-you" element={<ThankYou />} />
             <Route path="/give-items" element={<GiveItems />} />
-            <Route
-              path="/partner/apply"
-              element={<NotBuilt screen="P-01 Partner Application" pkg="P13" />}
-            />
+            <Route path="/partner/apply" element={<PartnerApply />} />
             <Route path="/primitives" element={<Primitives />} />
 
             {/* Member-only */}
@@ -59,16 +59,10 @@ export default function App() {
           {/* Partner console */}
           <Route element={<RequireRole allow={['partner']} />}>
             <Route element={<ConsoleLayout variant="partner" />}>
-              <Route path="/partner" element={<NotBuilt screen="P-02 Partner Dashboard" pkg="P13" />} />
-              <Route
-                path="/partner/new-listing"
-                element={<NotBuilt screen="P-03 Create a Listing" pkg="P13" />}
-              />
-              <Route path="/partner/roster" element={<NotBuilt screen="Partner roster" pkg="P13" />} />
-              <Route
-                path="/partner/profile"
-                element={<NotBuilt screen="Partner profile" pkg="P13" />}
-              />
+              <Route path="/partner" element={<PartnerDashboard />} />
+              <Route path="/partner/new-listing" element={<PartnerListingForm />} />
+              <Route path="/partner/roster" element={<PartnerDashboard />} />
+              <Route path="/partner/profile" element={<PartnerDashboard />} />
             </Route>
           </Route>
 
