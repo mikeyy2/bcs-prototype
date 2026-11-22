@@ -34,7 +34,8 @@ here rather than invented.
 | P13 | Partner console | 6.1.1, 6.2.1, 6.3.1, 1.3.1 | P-01, P-02, P-03 | pass | pass | pass | 256/256 | `d93061f` |
 | P14 | Staff console | 7.1.1–7.1.3, 7.2.1, 7.4.1–7.4.3 | A-01, A-02, A-03 | pass | pass | pass | 292/292 | `aa620a3` |
 | P15 | Responsive & accessibility pass | 9.4.2 | all 20 | pass | pass | pass | 340/340 | `da99903` |
-| P16 | Test suite & report | 10.2.1, 10.2.2 | — | pass | pass | pass | 340/340 | pending |
+| P16 | Test suite & report | 10.2.1, 10.2.2 | — | pass | pass | pass | 340/340 | `72d74ec` |
+| P17 | README & handoff | 10.3.1, 10.4.1, 10.4.2 | — | pass | pass | pass | 340/340 | pending |
 
 ## Approved deviations
 
@@ -63,10 +64,16 @@ here rather than invented.
 None. All 20 Figma screens are built. The `/#/primitives` development gallery has been
 removed as agreed; the primitives are exercised through the screens that use them.
 
+## Deployment
+
+P17's documentation is complete; the deploy itself is **not done**. It needs a public
+repository, a remote and Pages switched to GitHub Actions — none of which happen without
+being asked (CLAUDE.md). The checklist is in `07-handoff.md`. WBS 10.4.2 acceptance
+sign-off depends on a live URL and so is also outstanding.
+
 ## Open items
 
-- `/#/primitives` is a development reference page, not one of the 20 screens. **Remove before
-  the final deploy** (decision carried from P1).
+- `/#/primitives` was removed in P15, as agreed.
 - About / Contact / FAQ have no Figma frames, so those header and footer links stay inert.
 - Equipment Rental, Shuttle & Rides, Event Hosting and the Event Package remain deferred
   (SRS TBD-8); their 10 screens do not exist in Figma.
