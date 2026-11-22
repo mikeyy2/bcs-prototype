@@ -1,6 +1,9 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { RoleProvider } from './app/RoleProvider'
 import { DataProvider } from './data/DataProvider'
+import { AdminAccounts } from './routes/AdminAccounts'
+import { AdminApprovals } from './routes/AdminApprovals'
+import { AdminReports } from './routes/AdminReports'
 import { ConsoleLayout } from './components/layout/ConsoleLayout'
 import { PublicLayout } from './components/layout/PublicLayout'
 import { RequireRole } from './components/layout/RequireRole'
@@ -11,7 +14,6 @@ import { Events } from './routes/Events'
 import { GiveItems } from './routes/GiveItems'
 import { Home } from './routes/Home'
 import { MyActivity } from './routes/MyActivity'
-import { NotBuilt } from './routes/NotBuilt'
 import { OpportunityDetail } from './routes/OpportunityDetail'
 import { PartnerApply } from './routes/PartnerApply'
 import { PartnerDashboard } from './routes/PartnerDashboard'
@@ -26,8 +28,7 @@ import { Volunteer } from './routes/Volunteer'
  * HashRouter, not BrowserRouter: GitHub Pages has no server-side rewrite, so
  * hash routes are what keeps an inner page working after a refresh.
  *
- * Screens not yet built render <NotBuilt>, so navigation is complete from P2
- * onward and each later package swaps one placeholder for the real screen.
+ * All 20 Figma screens are built; there are no placeholder routes left.
  */
 export default function App() {
   return (
@@ -69,16 +70,10 @@ export default function App() {
           {/* Staff console */}
           <Route element={<RequireRole allow={['staff']} />}>
             <Route element={<ConsoleLayout variant="admin" />}>
-              <Route path="/admin" element={<NotBuilt screen="A-01 Approval Queue" pkg="P14" />} />
-              <Route
-                path="/admin/approvals"
-                element={<NotBuilt screen="A-01 Approval Queue" pkg="P14" />}
-              />
-              <Route
-                path="/admin/accounts"
-                element={<NotBuilt screen="A-02 Accounts & Partners" pkg="P14" />}
-              />
-              <Route path="/admin/reports" element={<NotBuilt screen="A-03 Reports" pkg="P14" />} />
+              <Route path="/admin" element={<AdminApprovals />} />
+              <Route path="/admin/approvals" element={<AdminApprovals />} />
+              <Route path="/admin/accounts" element={<AdminAccounts />} />
+              <Route path="/admin/reports" element={<AdminReports />} />
             </Route>
           </Route>
 
