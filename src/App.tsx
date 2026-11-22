@@ -14,6 +14,7 @@ import { MyActivity } from './routes/MyActivity'
 import { NotBuilt } from './routes/NotBuilt'
 import { OpportunityDetail } from './routes/OpportunityDetail'
 import { Primitives } from './routes/Primitives'
+import { Search } from './routes/Search'
 import { ThankYou } from './routes/ThankYou'
 import { Volunteer } from './routes/Volunteer'
 
@@ -33,7 +34,7 @@ export default function App() {
           <Route element={<PublicLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LogIn />} />
-            <Route path="/search" element={<NotBuilt screen="S-01 Search Results" pkg="P11" />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/volunteer" element={<Volunteer />} />
             <Route path="/volunteer/:id" element={<OpportunityDetail />} />
             <Route path="/events" element={<Events />} />

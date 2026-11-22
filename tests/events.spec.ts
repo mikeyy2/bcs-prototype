@@ -47,9 +47,15 @@ test.describe('P8 events calendar', () => {
     await expect(label).toHaveText(first ?? '')
   })
 
-  test('a full event is marked Full in the grid', async ({ page }) => {
+  test('a full event is marked Full in the calendar', async ({ page }) => {
     await page.goto('./#/events')
-    await expect(page.getByRole('link', { name: /Full/ }).first()).toBeVisible()
+    // Seeded events are dated relative to today, so the full one can sit in
+    // this month or the next depending on when the suite runs.
+    const full = page.getByRole('link', { name: /Full/ })
+    if ((await full.count()) === 0) {
+      await page.getByRole('button', { name: 'Next month' }).click()
+    }
+    await expect(full.first()).toBeVisible()
   })
 })
 

@@ -28,7 +28,8 @@ here rather than invented.
 | P7 | My Activity | 1.3.2, 8.2.1, 2.3.1 | V-03 | pass | pass | pass | 128/128 | `c057119` |
 | P8 | Events | 3.1.1, 3.1.2, 3.2.1, 3.2.2 | E-01, E-02, E-02a | pass | pass | pass | 160/160 | `dd16cd0` |
 | P9 | Donations | 2.1.1, 2.1.2, 2.1.3, 9.5.1 | D-01, D-02 | pass | pass | pass | 182/182 | `6911f40` |
-| P10 | Give Items | 2.2.1, 2.2.2 | D-03 | pass | pass | pass | 198/198 | pending |
+| P10 | Give Items | 2.2.1, 2.2.2 | D-03 | pass | pass | pass | 198/198 | `c63a857` |
+| P11 | Search | 8.1.1 | S-01 | pass | pass | pass | 214/214 | pending |
 
 ## Approved deviations
 
