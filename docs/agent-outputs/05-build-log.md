@@ -30,7 +30,7 @@ here rather than invented.
 | P9 | Donations | 2.1.1, 2.1.2, 2.1.3, 9.5.1 | D-01, D-02 | pass | pass | pass | 182/182 | `6911f40` |
 | P10 | Give Items | 2.2.1, 2.2.2 | D-03 | pass | pass | pass | 198/198 | `c63a857` |
 | P11 | Search | 8.1.1 | S-01 | pass | pass | pass | 214/214 | `9da5e50` |
-| P12 | Profile & notifications | 9.2.1, 9.2.2 | C-03 | pass | pass | pass | 232/232 | pending |
+| P12 | Profile & notifications | 9.2.1, 9.2.2 | C-03 | pass | pass | pass | 232/232 | `bb89df8` |
 
 ## Approved deviations
 
@@ -50,6 +50,12 @@ here rather than invented.
 | PAY-1 | Payment step on D-01 | Figma draws a Stripe card form: number, expiry, CVC, ZIP | No card inputs at all; a labelled mock payment block | Static hosting has no processor, and REQ-DON-2 with NFR-SEC-2 require BCS never to receive card data. | Implied by P9 |
 | DON-1 | Anonymous donation | Not in the design | "Give anonymously" checkbox on D-01 | REQ-DON-3 and REQ-DON-4 are new in SRS v1.0; approved as a mock. | Yes |
 | NAV-1 | Header, footer and sidebar navigation | Unwired in Figma — menu items live inside component instances | Wired to routes in code | The prototype cannot navigate otherwise. | Implied by P2 |
+
+## Screens still to build
+
+P13 (P-01, P-02, P-03 partner console) and P14 (A-01, A-02, A-03 staff console) are the
+remaining designed screens. P15–P17 (responsive and accessibility pass, test report,
+deploy and handoff) follow them.
 
 ## Open items
 
