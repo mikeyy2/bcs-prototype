@@ -117,8 +117,12 @@ export function Donate() {
             placeholder="75.00"
             value={custom}
             onChange={(event) => {
-              setCustom(event.target.value)
-              setPreset(null)
+              const next = event.target.value
+              setCustom(next)
+              // Clearing the field restores the last chosen preset rather than
+              // leaving the form on $0.00 with nothing selected.
+              if (next.trim()) setPreset(null)
+              else if (preset === null) setPreset(PRESETS[1])
             }}
             hint="Minimum $1."
             error={error?.field === 'amount' ? error.message : undefined}

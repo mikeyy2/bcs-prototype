@@ -248,7 +248,12 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const decideApproval = useCallback<DataContextValue['decideApproval']>(
     (itemId, decision, reason) => {
       setState((current) => {
-        const item = APPROVAL_ITEMS.find((i) => i.id === itemId)
+        // The queue holds seeded items and listings the partner submitted in
+        // this session; a decision on either must email the submitter.
+        const seeded = APPROVAL_ITEMS.find((i) => i.id === itemId)
+        const submitted = current.partnerListings.find((l) => l.id === itemId)
+        const item = seeded ?? (submitted ? { title: submitted.title } : null)
+
         const next: MutableState = {
           ...current,
           approvals: { ...current.approvals, [itemId]: decision },
@@ -256,6 +261,16 @@ export function DataProvider({ children }: { children: ReactNode }) {
             decision === 'rejected' && reason
               ? { ...current.approvalReasons, [itemId]: reason }
               : current.approvalReasons,
+          // Reflect the decision back to the partner's own listing table.
+          partnerListings: current.partnerListings.map((listing) =>
+            listing.id === itemId
+              ? {
+                  ...listing,
+                  status: decision === 'approved' ? 'published' : 'rejected',
+                  rejectionReason: decision === 'rejected' ? (reason ?? null) : null,
+                }
+              : listing,
+          ),
         }
 
         if (!item) return next
