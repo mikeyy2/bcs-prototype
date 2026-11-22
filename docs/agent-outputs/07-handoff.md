@@ -13,16 +13,29 @@ as production-ready.
 | Screens deferred | 10 — they exist in neither Figma nor the SRS prototype index as built |
 | Tests | 340 passing, 0 failing, 40 skipped |
 | Lint, typecheck, build | Clean |
-| Deployed | **No** — see below |
+| Deployed | **Yes** — https://mikeyy2.github.io/bcs-prototype/ |
 
-## Deployment: not done, and why
+## Deployment: live
 
-The build is deploy-ready, but publishing needs actions only the repository owner can take.
-Under `CLAUDE.md` I do not create repositories, add remotes, push or deploy without being
-asked, so none of that has happened. There is no remote configured and nothing has left
-this machine.
+**https://mikeyy2.github.io/bcs-prototype/** — deployed from `main` by
+`.github/workflows/deploy.yml`. The repository owner created the public repo and enabled
+Pages; the workflow has been green since run `45082816033`.
 
-### Checklist for whoever deploys
+Verified on the live site in a browser: home loads with its styling and icons, a deep link
+survives a refresh, the volunteer registration journey completes, the mock outbox fills,
+no console errors, no failed requests, no mobile overflow at 360px. Evidence:
+`docs/screenshots/live-home-1440.png`.
+
+### The first run failed, and why
+
+The first push failed CI on three P15 overflow checks that pass on macOS (C-03 9px,
+V-01 15px, V-03 9px at 360px). Inter is not bundled (FONT-1), so the Linux runner falls
+back to a wider font and two zero-slack layouts spilled over: the Input was a fixed 320px
+inside a 320px content box, and the header's right-hand cluster could neither shrink nor
+wrap. Both are fixed (FONT-2), and `responsive.spec.ts` now re-checks every route at 360px
+with a deliberately wide font forced, so the same class of defect fails locally too.
+
+### Checklist, for reference or a fresh deploy
 
 1. **Create a public repository named exactly `bcs-prototype`.** The name must match
    `base` in `vite.config.ts`. A different name means every asset 404s; change `base` to
@@ -115,5 +128,7 @@ REQ-DON-2 with NFR-SEC-2 require that BCS never receives card data.
 
 ## Acceptance (WBS 10.4.2)
 
-Sign-off against SRS §1.4 cannot be completed yet: it requires a deployed, publicly
-reachable site, and deployment is still outstanding.
+The site is live and publicly reachable, so sign-off against SRS §1.4 is now possible. It
+is the sponsor's and instructor's to give, against the known gaps above — notably that
+C-04 is a responsive derivation rather than the drawn mobile design, and that four SRS
+services remain deferred.

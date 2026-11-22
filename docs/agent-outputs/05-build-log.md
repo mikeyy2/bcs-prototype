@@ -69,10 +69,10 @@ removed as agreed; the primitives are exercised through the screens that use the
 
 ## Deployment
 
-P17's documentation is complete; the deploy itself is **not done**. It needs a public
-repository, a remote and Pages switched to GitHub Actions — none of which happen without
-being asked (CLAUDE.md). The checklist is in `07-handoff.md`. WBS 10.4.2 acceptance
-sign-off depends on a live URL and so is also outstanding.
+**Live at https://mikeyy2.github.io/bcs-prototype/** (WBS 10.4.1), deployed by the Actions
+workflow from `main`. The first run failed on three mobile-overflow checks caused by the
+Linux font fallback; fixed under FONT-2 and verified live. WBS 10.4.2 acceptance sign-off
+is now possible and sits with the sponsor.
 
 ## Open items
 
