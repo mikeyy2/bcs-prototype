@@ -35,6 +35,7 @@ here rather than invented.
 | P14 | Staff console | 7.1.1–7.1.3, 7.2.1, 7.4.1–7.4.3 | A-01, A-02, A-03 | pass | pass | pass | 292/292 | `aa620a3` |
 | P15 | Responsive & accessibility pass | 9.4.2 | all 20 | pass | pass | pass | 340/340 | `da99903` |
 | P16 | Test suite & report | 10.2.1, 10.2.2 | — | pass | pass | pass | 340/340 | `72d74ec` |
+| QA | Browser QA pass & fixes | 10.2.1, 10.2.2 | all 20 | pass | pass | pass | 346/346 | `e37def1` |
 | P17 | README & handoff | 10.3.1, 10.4.1, 10.4.2 | — | pass | pass | pass | 340/340 | `2a23f6e` |
 
 ## Approved deviations
@@ -57,6 +58,7 @@ here rather than invented.
 | RESP-2 | Console and activity tables on phones | Tables are designed at 1440px only | Rows stack below 820px instead of scrolling horizontally | Horizontal scrolling put row action buttons out of reach on a 412px screen. | Implied by P13 |
 | LIST-1 | Shift editor on P-03 | Figma draws a repeatable shift row editor | One date and one capacity per listing | Enough to demonstrate the approval workflow end to end; the full editor is not built. | Flagged |
 | RPT-1 | Third report on A-03 | REQ-ADM-7 names a service-usage and fee-revenue report | Not built; the page says so | Space bookings, rentals and rides are deferred, so there is nothing to report on. | Flagged |
+| A11Y-5 | Hero call-to-action label | Figma: accent `#E8833A` fill with white text, 2.71:1 | Same fill, dark `#1C2B2D` label, 5.40:1 | NFR-USE-1. The fill is the dominant visual and is kept exactly; only the label changes. | Yes, by the standing AA decision |
 | NAV-1 | Header, footer and sidebar navigation | Unwired in Figma — menu items live inside component instances | Wired to routes in code | The prototype cannot navigate otherwise. | Implied by P2 |
 
 ## Screens still to build
