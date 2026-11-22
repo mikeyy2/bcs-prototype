@@ -29,6 +29,16 @@
   background: var(--bcs-primary-dark);
 }
 
+.accent {
+  background: var(--bcs-accent);
+  color: var(--bcs-accent-on);
+}
+
+.accent:hover:not(:disabled) {
+  background: var(--bcs-accent-ink);
+  color: var(--bcs-on-dark);
+}
+
 .secondary {
   background: var(--bcs-surface);
   border-color: var(--bcs-primary);

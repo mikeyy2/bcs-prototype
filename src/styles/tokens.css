@@ -23,6 +23,19 @@
   --bcs-on-dark-muted: #cfe2e0;
   --bcs-avatar-bg: #e3f0ef;
 
+  /* Category tints used behind the photo placeholders on C-01 and V-01,
+     sampled from the Figma render. */
+  --bcs-tint-teal: #e3f0ef;
+  --bcs-tint-peach: #fdf0e6;
+  --bcs-tint-green: #e6f3eb;
+
+  /* DEVIATION A11Y-5: Figma's hero button is #E8833A with white text, which
+     is 2.71:1. The fill is kept exactly as drawn and the label is dark
+     instead, giving 5.40:1. --bcs-accent-ink is accent-coloured text on
+     white, darkened to clear 4.5:1. */
+  --bcs-accent-on: #1c2b2d;
+  --bcs-accent-ink: #ae622c;
+
   /* The design draws borders at 37% opacity; kept, borders are not text. */
   --bcs-border-soft: rgba(226, 222, 214, 0.37);
 

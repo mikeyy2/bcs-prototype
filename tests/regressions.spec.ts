@@ -59,6 +59,30 @@ test.describe('QA regressions', () => {
     await expect(partnerRow.getByRole('button', { name: 'Fix & resubmit' })).toBeVisible()
   })
 
+  /**
+   * QA-3 — C-01 was built from the Figma layer tree, which does not carry
+   * fills, so the hero rendered on white with a teal button and the cards
+   * and CTAs were untinted. Comparing the render against the frame caught it.
+   */
+  test('QA-3: the hero is a primary band with an accent call to action', async ({ page }) => {
+    await page.goto('./')
+    const hero = page.locator('section').first()
+    await expect(hero).toHaveCSS('background-color', 'rgb(15, 82, 87)')
+
+    const cta = page.getByRole('button', { name: 'Find opportunities' })
+    await expect(cta).toHaveCSS('background-color', 'rgb(232, 131, 58)')
+    // Figma's white label on that orange is 2.71:1, so the label is dark.
+    await expect(cta).toHaveCSS('color', 'rgb(28, 43, 45)')
+  })
+
+  test('QA-3b: opportunity photo placeholders are tinted by category', async ({ page }) => {
+    await page.goto('./')
+    const tints = await page
+      .getByRole('img')
+      .evaluateAll((els) => els.map((el) => getComputedStyle(el).backgroundColor))
+    expect(new Set(tints).size).toBeGreaterThan(1)
+  })
+
   test('QA-2b: approving a partner-submitted listing marks it published', async ({ page }) => {
     await signIn(page, 'Partner')
     await page.goto('./#/partner/new-listing')

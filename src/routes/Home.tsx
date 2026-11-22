@@ -51,7 +51,9 @@ export function Home() {
               and join community events, all in one place.
             </p>
             <div className={styles.heroButtons}>
-              <Button onClick={() => navigate('/volunteer')}>Find opportunities</Button>
+              <Button variant="accent" onClick={() => navigate('/volunteer')}>
+                Find opportunities
+              </Button>
               <Button variant="secondary" onClick={() => navigate('/donate')}>
                 Donate today
               </Button>
@@ -110,7 +112,7 @@ export function Home() {
         </section>
 
         <section className={styles.ctas} aria-label="Other ways to help">
-          <div className={styles.cta}>
+          <div className={[styles.cta, styles.ctaGive].join(' ')}>
             <img className={styles.ctaIcon} src={box} alt="" />
             <h2 className={styles.ctaTitle}>Give items your neighbors need</h2>
             <p className={styles.ctaBody}>
@@ -118,7 +120,7 @@ export function Home() {
             </p>
             <Button onClick={() => navigate('/give-items')}>Offer items</Button>
           </div>
-          <div className={styles.cta}>
+          <div className={[styles.cta, styles.ctaPartner].join(' ')}>
             <img className={styles.ctaIcon} src={building} alt="" />
             <h2 className={styles.ctaTitle}>Are you a nonprofit?</h2>
             <p className={styles.ctaBody}>

@@ -1,8 +1,10 @@
 /* Figma: C-01 Home 1:26 */
 
+/* Figma draws the hero as a full-bleed primary band with white text and an
+   accent call to action. */
 .hero {
-  background: var(--bcs-surface);
-  border-bottom: 1px solid var(--bcs-border-soft);
+  background: var(--bcs-primary);
+  color: var(--bcs-on-dark);
 }
 
 .heroInner {
@@ -22,9 +24,9 @@
 
 .eyebrow {
   padding: 4px 10px;
-  background: var(--bcs-avatar-bg);
+  background: var(--bcs-surface);
   border-radius: var(--bcs-radius-pill);
-  color: var(--bcs-primary);
+  color: var(--bcs-accent-ink);
   font-size: var(--bcs-size-sm);
   font-weight: var(--bcs-weight-semibold);
 }
@@ -37,7 +39,7 @@
 
 .lede {
   font-size: 17px;
-  color: var(--bcs-text-muted);
+  color: var(--bcs-on-dark-muted);
   max-width: 54ch;
 }
 
@@ -143,16 +145,23 @@
   gap: 24px;
 }
 
+/* Figma tints the two cards: give-items peach, partner teal. */
 .cta {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
   padding: 28px;
-  background: var(--bcs-surface);
-  border: 1px solid var(--bcs-border-soft);
+  border: 0;
   border-radius: var(--bcs-radius-lg);
-  box-shadow: var(--bcs-shadow-card);
+}
+
+.ctaGive {
+  background: var(--bcs-tint-peach);
+}
+
+.ctaPartner {
+  background: var(--bcs-tint-teal);
 }
 
 .ctaIcon {

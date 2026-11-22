@@ -5,6 +5,7 @@ import pin from '../../assets/icons/pin.svg'
 import { formatDate, formatTimeRange } from '../../data/format'
 import type { ResolvedOpportunity } from '../../data/selectors'
 import { ImagePlaceholder } from './ImagePlaceholder'
+import { TINT_BY_CATEGORY } from './tints'
 import styles from './OpportunityCard.module.css'
 
 /**
@@ -19,7 +20,10 @@ export function OpportunityCard({ opportunity }: { opportunity: ResolvedOpportun
 
   return (
     <Link className={styles.card} to={`/volunteer/${opportunity.id}`}>
-      <ImagePlaceholder caption={`${opportunity.category} photo`} />
+      <ImagePlaceholder
+        caption={`${opportunity.category} photo`}
+        tint={TINT_BY_CATEGORY[opportunity.category]}
+      />
       <div className={styles.stack}>
         <span className={styles.tag}>{opportunity.category}</span>
         <h3 className={styles.title}>{opportunity.title}</h3>
