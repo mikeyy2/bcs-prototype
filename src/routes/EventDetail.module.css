@@ -95,6 +95,8 @@
 }
 
 .card {
+  /* Grid child: without this the track is sized by min-content. */
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 14px;

@@ -41,7 +41,10 @@ export function Donate() {
   const [email, setEmail] = useState('')
   const [anonymous, setAnonymous] = useState(false)
   const [coverFees, setCoverFees] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  /** Errors are bound to the field they concern so screen readers announce them. */
+  const [error, setError] = useState<{ field: 'amount' | 'name' | null; message: string } | null>(
+    null,
+  )
 
   const customCents = custom.trim() ? Math.round(Number(custom) * 100) : null
   const baseCents = customCents !== null && !Number.isNaN(customCents) ? customCents : (preset ?? 0)
@@ -52,16 +55,16 @@ export function Donate() {
     setError(null)
 
     if (custom.trim() && (customCents === null || Number.isNaN(customCents))) {
-      setError('Enter a donation amount as a number.')
+      setError({ field: 'amount', message: 'Enter a donation amount as a number.' })
       return
     }
     // REQ-DON-1 — a custom amount must be at least $1.
     if (baseCents < MINIMUM_CENTS) {
-      setError('Enter an amount of at least $1.')
+      setError({ field: 'amount', message: 'Enter an amount of at least $1.' })
       return
     }
     if (!anonymous && !name.trim()) {
-      setError('Enter your name, or choose to give anonymously.')
+      setError({ field: 'name', message: 'Enter your name, or choose to give anonymously.' })
       return
     }
 
@@ -118,6 +121,7 @@ export function Donate() {
               setPreset(null)
             }}
             hint="Minimum $1."
+            error={error?.field === 'amount' ? error.message : undefined}
           />
 
           <Input
@@ -153,6 +157,7 @@ export function Donate() {
               value={anonymous ? '' : name}
               disabled={anonymous}
               onChange={(event) => setName(event.target.value)}
+              error={error?.field === 'name' ? error.message : undefined}
             />
             <Input
               label="Email for receipt"
@@ -192,9 +197,9 @@ export function Donate() {
             Add $1.50 to cover processing fees
           </label>
 
-          {error ? (
+          {error && error.field === null ? (
             <p className={styles.error} role="alert">
-              {error}
+              {error.message}
             </p>
           ) : null}
 

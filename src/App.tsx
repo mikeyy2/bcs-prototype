@@ -18,7 +18,6 @@ import { OpportunityDetail } from './routes/OpportunityDetail'
 import { PartnerApply } from './routes/PartnerApply'
 import { PartnerDashboard } from './routes/PartnerDashboard'
 import { PartnerListingForm } from './routes/PartnerListingForm'
-import { Primitives } from './routes/Primitives'
 import { Profile } from './routes/Profile'
 import { Search } from './routes/Search'
 import { ThankYou } from './routes/ThankYou'
@@ -48,7 +47,6 @@ export default function App() {
             <Route path="/donate/thank-you" element={<ThankYou />} />
             <Route path="/give-items" element={<GiveItems />} />
             <Route path="/partner/apply" element={<PartnerApply />} />
-            <Route path="/primitives" element={<Primitives />} />
 
             {/* Member-only */}
             <Route element={<RequireRole allow={['volunteer', 'donor', 'partner', 'staff']} />}>
