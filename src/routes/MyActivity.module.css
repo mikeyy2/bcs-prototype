@@ -280,4 +280,10 @@
     border-bottom: 0;
     padding: 5px 18px;
   }
+
+  /* nowrap is safe in a wide table but not in a stacked row. */
+  .numeric,
+  .link {
+    white-space: normal;
+  }
 }

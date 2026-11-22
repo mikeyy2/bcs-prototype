@@ -59,6 +59,7 @@ here rather than invented.
 | LIST-1 | Shift editor on P-03 | Figma draws a repeatable shift row editor | One date and one capacity per listing | Enough to demonstrate the approval workflow end to end; the full editor is not built. | Flagged |
 | RPT-1 | Third report on A-03 | REQ-ADM-7 names a service-usage and fee-revenue report | Not built; the page says so | Space bookings, rentals and rides are deferred, so there is nothing to report on. | Flagged |
 | A11Y-5 | Hero call-to-action label | Figma: accent `#E8833A` fill with white text, 2.71:1 | Same fill, dark `#1C2B2D` label, 5.40:1 | NFR-USE-1. The fill is the dominant visual and is kept exactly; only the label changes. | Yes, by the standing AA decision |
+| FONT-2 | Input width and header cluster | Figma: Input is a fixed 320px; header right group is a fixed row | `max-width: 320px` and a wrapping, shrinkable header cluster | At 360px the content box is exactly 320px, so a wider fallback font overflowed. Platform-independent now. | Implied by the CI fix |
 | NAV-1 | Header, footer and sidebar navigation | Unwired in Figma — menu items live inside component instances | Wired to routes in code | The prototype cannot navigate otherwise. | Implied by P2 |
 
 ## Screens still to build

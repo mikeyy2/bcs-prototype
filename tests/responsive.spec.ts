@@ -76,6 +76,36 @@ test.describe('P15 responsive', () => {
   }
 })
 
+/**
+ * The prototype does not bundle Inter (DEVIATION FONT-1), so each platform
+ * falls back to a different font. CI on Linux picks a wider one than macOS,
+ * which broke three screens that fitted 360px exactly. Forcing a deliberately
+ * wide font reproduces that on any machine.
+ */
+test.describe('P15 font-metric resilience', () => {
+  for (const screen of SCREENS) {
+    test(`${screen.id} still fits 360px with a wider fallback font`, async ({ page }) => {
+      await page.addInitScript(() => {
+        document.addEventListener('DOMContentLoaded', () => {
+          const style = document.createElement('style')
+          style.textContent =
+            '*, *::before, *::after { font-family: "Courier New", monospace !important; }'
+          document.head.appendChild(style)
+        })
+      })
+      await signIn(page, screen.role)
+      await page.setViewportSize({ width: 360, height: 900 })
+      await page.goto(screen.route)
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+
+      const overflow = await page.evaluate(
+        () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      )
+      expect(overflow, `${screen.id} overflows with a wide font`).toBeLessThanOrEqual(1)
+    })
+  }
+})
+
 test.describe('P15 accessibility', () => {
   for (const screen of SCREENS) {
     test(`${screen.id} has no critical or serious violations at 360 and 1440`, async ({ page }) => {

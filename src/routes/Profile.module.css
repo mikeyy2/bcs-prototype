@@ -176,8 +176,11 @@
 .locked {
   font-size: var(--bcs-size-base);
   color: var(--bcs-text-muted);
-  white-space: nowrap;
   padding-top: 2px;
+}
+
+.toggleText {
+  min-width: 0;
 }
 
 .chips {

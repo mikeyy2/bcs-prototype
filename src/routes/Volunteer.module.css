@@ -123,12 +123,14 @@
 
 .dates {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
 .dates > * {
   width: auto;
-  flex: 1 1 0;
+  flex: 1 1 130px;
+  min-width: 0;
 }
 
 .results {
@@ -146,7 +148,8 @@
 }
 
 .search {
-  flex: 1 1 320px;
+  flex: 1 1 240px;
+  min-width: 0;
 }
 
 .sortField {

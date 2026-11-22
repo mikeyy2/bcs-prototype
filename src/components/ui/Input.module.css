@@ -4,8 +4,11 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  width: 320px;
-  max-width: 100%;
+  /* 320px is the Figma width, but it must never exceed the parent: at 360px
+     the content box is exactly 320px, leaving no slack for a wider font. */
+  width: 100%;
+  max-width: 320px;
+  min-width: 0;
 }
 
 .label {
@@ -21,6 +24,7 @@
 
 .control {
   width: 100%;
+  min-width: 0;
   padding: 11px 14px;
   background: var(--bcs-surface);
   border: 1px solid var(--bcs-border-soft);
