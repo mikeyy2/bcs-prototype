@@ -14,6 +14,7 @@ import { MyActivity } from './routes/MyActivity'
 import { NotBuilt } from './routes/NotBuilt'
 import { OpportunityDetail } from './routes/OpportunityDetail'
 import { Primitives } from './routes/Primitives'
+import { Profile } from './routes/Profile'
 import { Search } from './routes/Search'
 import { ThankYou } from './routes/ThankYou'
 import { Volunteer } from './routes/Volunteer'
@@ -51,10 +52,7 @@ export default function App() {
             {/* Member-only */}
             <Route element={<RequireRole allow={['volunteer', 'donor', 'partner', 'staff']} />}>
               <Route path="/my-activity" element={<MyActivity />} />
-              <Route
-                path="/profile"
-                element={<NotBuilt screen="C-03 Profile & Notifications" pkg="P12" />}
-              />
+              <Route path="/profile" element={<Profile />} />
             </Route>
           </Route>
 
