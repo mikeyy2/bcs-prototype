@@ -33,7 +33,8 @@ here rather than invented.
 | P12 | Profile & notifications | 9.2.1, 9.2.2 | C-03 | pass | pass | pass | 232/232 | `bb89df8` |
 | P13 | Partner console | 6.1.1, 6.2.1, 6.3.1, 1.3.1 | P-01, P-02, P-03 | pass | pass | pass | 256/256 | `d93061f` |
 | P14 | Staff console | 7.1.1–7.1.3, 7.2.1, 7.4.1–7.4.3 | A-01, A-02, A-03 | pass | pass | pass | 292/292 | `aa620a3` |
-| P15 | Responsive & accessibility pass | 9.4.2 | all 20 | pass | pass | pass | 340/340 | pending |
+| P15 | Responsive & accessibility pass | 9.4.2 | all 20 | pass | pass | pass | 340/340 | `da99903` |
+| P16 | Test suite & report | 10.2.1, 10.2.2 | — | pass | pass | pass | 340/340 | pending |
 
 ## Approved deviations
 
